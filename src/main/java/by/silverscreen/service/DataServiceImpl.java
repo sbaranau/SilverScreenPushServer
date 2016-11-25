@@ -35,15 +35,19 @@ public class DataServiceImpl implements DataService {
                 TokenEntity existingTokenEntity = checkName(tokenEntity.getLogin());
                 if (existingTokenEntity != null && (!existingTokenEntity.getToken().equals(tokenEntity.getToken()) ||
                     !existingTokenEntity.getPassword().equals(tokenEntity.getPassword()))) {
-                    dataRepository.updatePhoneByLogin(new PhoneDAO(tokenEntity));
+                    PhoneDAO phoneDAO = new PhoneDAO(tokenEntity);
+                    dataRepository.updatePhoneByLogin(phoneDAO);
                 } else {
-                    dataRepository.persist(new PhoneDAO(tokenEntity));
+                    PhoneDAO phoneDAO = new PhoneDAO(tokenEntity);
+                    dataRepository.persist(phoneDAO);
                 }
             } else {
                 if (checkToken(tokenEntity.getToken()) == null) {
-                    dataRepository.persist(new PhoneDAO(tokenEntity));
+                    PhoneDAO phoneDAO = new PhoneDAO(tokenEntity);
+                    dataRepository.persist(phoneDAO);
                 } else {
-                    dataRepository.updatePhoneByToken(new PhoneDAO(tokenEntity));
+                    PhoneDAO phoneDAO = new PhoneDAO(tokenEntity);
+                    dataRepository.updatePhoneByToken(phoneDAO);
                 }
             }
             return true;
