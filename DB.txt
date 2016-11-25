@@ -1,0 +1,16 @@
+password SU root
+
+CREATE TABLE phone
+(
+  data_id uuid NOT NULL,
+  token character varying(100) NOT NULL,
+  login character varying(50),
+  password character varying(50),
+  CONSTRAINT phone_pk PRIMARY KEY (data_id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE phone
+  OWNER TO postgres;
+  
