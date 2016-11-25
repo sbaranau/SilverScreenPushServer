@@ -13,8 +13,12 @@ public interface DataRepository<V extends DomainObject> {
 
     Set<String> getRandomData();
 
-    boolean checkName(String name);
+    PhoneDAO checkName(String name);
 
-    boolean checkToken(String token);
+    PhoneDAO checkToken(String token);
+
+    void updatePhoneByLogin(PhoneDAO phoneDAO);
+
+    void updatePhoneByToken(PhoneDAO phoneDAO);
 
 }

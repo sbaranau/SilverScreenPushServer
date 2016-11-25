@@ -1,15 +1,18 @@
 package by.silverscreen.Entities;
 
+import by.silverscreen.DAO.PhoneDAO;
+
 import java.io.Serializable;
 
 /**
  * Created by sbaranau on 11/25/2016.
  */
 public class TokenEntity implements Serializable {
-    private String token;
-    private String user;
-    private String login;
-    private String password;
+    private String token = "";
+    private String user = "";
+    private String login = "";
+    private String password = "";
+
 
     public String getToken() {
         return token;
@@ -51,5 +54,18 @@ public class TokenEntity implements Serializable {
     }
 
     public TokenEntity() {
+    }
+
+    public TokenEntity(PhoneDAO phoneDAO) {
+        TokenEntity tokenEntity = new TokenEntity();
+        if (phoneDAO.getToken() != null) {
+            tokenEntity.setToken(phoneDAO.getToken());
+        }
+        if (phoneDAO.getLogin() != null) {
+            tokenEntity.setLogin(phoneDAO.getLogin());
+        }
+        if (phoneDAO.getPassword() != null) {
+            tokenEntity.setPassword(phoneDAO.getPassword());
+        }
     }
 }

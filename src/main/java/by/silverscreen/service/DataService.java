@@ -9,11 +9,11 @@ import java.util.Set;
  */
 public interface DataService {
 
-    public boolean persist(TokenEntity tokenEntity);
+    boolean persist(TokenEntity tokenEntity);
 
-    public Set<String> getRandomData();
+    Set<String> getRandomData();
 
-    public boolean checkName(String name);
+    TokenEntity checkName(String name);
 
-    public boolean checkToken(String token);
+    TokenEntity checkToken(String token);
 }

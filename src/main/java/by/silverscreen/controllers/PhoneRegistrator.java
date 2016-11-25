@@ -36,13 +36,13 @@ public class PhoneRegistrator {
             if (data.getToken() == null) {
                 return Ajax.emptyResponse();
             } else {
-                pusher.sendToOne(data.getToken());
+                dataService.persist(data);
+                //TODO working code pusher.sendToOne(data.getToken());
             }
-            //dataService.persist(data);
             return Ajax.emptyResponse();
         } catch (Exception e) {
             throw new RestException(e);
         }
-        //return "Hello World!";
     }
+
 }
