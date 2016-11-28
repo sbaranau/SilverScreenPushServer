@@ -86,7 +86,7 @@ public class DataRepositoryImpl implements DataRepository<PhoneDAO> {
 
     @Override
     public void updatePhoneByToken(PhoneDAO phoneDAO) {
-        Object[] params = new Object[] {  phoneDAO.getPassword(), phoneDAO.getLogin(), phoneDAO.getToken() };
+        Object[] params = new Object[] {   phoneDAO.getLogin(), phoneDAO.getPassword(), phoneDAO.getToken() };
         int[] types = new int[] {          Types.VARCHAR,      Types.VARCHAR,      Types.VARCHAR };
 
         jdbcOperations.update("UPDATE phone \n" +

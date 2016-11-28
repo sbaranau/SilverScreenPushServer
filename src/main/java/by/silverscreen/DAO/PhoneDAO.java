@@ -32,16 +32,15 @@ public class PhoneDAO implements DomainObject{
     }
 
     public PhoneDAO(TokenEntity tokenEntity) {
-        PhoneDAO phoneDAO = new PhoneDAO();
-        phoneDAO.setId(UUID.randomUUID());
+        id=UUID.randomUUID();
         if (tokenEntity.getLogin() != null) {
-           phoneDAO.setLogin(tokenEntity.getLogin());
+           login = (tokenEntity.getLogin());
         }
         if (tokenEntity.getToken() != null) {
-            phoneDAO.setToken(tokenEntity.getToken());
+            token = (tokenEntity.getToken());
         }
         if (tokenEntity.getPassword() != null) {
-            phoneDAO.setPassword(tokenEntity.getPassword());
+           password = (tokenEntity.getPassword());
         }
     }
     public UUID getId() {

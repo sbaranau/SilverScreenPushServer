@@ -33,12 +33,13 @@ public class DataServiceImpl implements DataService {
         try {
             if (tokenEntity.getLogin() != null && tokenEntity.getLogin().length() > 0) {
                 TokenEntity existingTokenEntity = checkName(tokenEntity.getLogin());
+                PhoneDAO phoneDAO = new PhoneDAO(tokenEntity);
                 if (existingTokenEntity != null && (!existingTokenEntity.getToken().equals(tokenEntity.getToken()) ||
                     !existingTokenEntity.getPassword().equals(tokenEntity.getPassword()))) {
-                    PhoneDAO phoneDAO = new PhoneDAO(tokenEntity);
                     dataRepository.updatePhoneByLogin(phoneDAO);
+                } else if (existingTokenEntity == null && checkToken(tokenEntity.getToken()) != null){
+                    dataRepository.updatePhoneByToken(phoneDAO);
                 } else {
-                    PhoneDAO phoneDAO = new PhoneDAO(tokenEntity);
                     dataRepository.persist(phoneDAO);
                 }
             } else {

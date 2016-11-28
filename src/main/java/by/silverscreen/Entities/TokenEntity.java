@@ -57,15 +57,14 @@ public class TokenEntity implements Serializable {
     }
 
     public TokenEntity(PhoneDAO phoneDAO) {
-        TokenEntity tokenEntity = new TokenEntity();
         if (phoneDAO.getToken() != null) {
-            tokenEntity.setToken(phoneDAO.getToken());
+            token = phoneDAO.getToken();
         }
         if (phoneDAO.getLogin() != null) {
-            tokenEntity.setLogin(phoneDAO.getLogin());
+            login = (phoneDAO.getLogin());
         }
         if (phoneDAO.getPassword() != null) {
-            tokenEntity.setPassword(phoneDAO.getPassword());
+            password = (phoneDAO.getPassword());
         }
     }
 }
