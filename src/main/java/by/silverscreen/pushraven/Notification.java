@@ -159,7 +159,7 @@ public class Notification {
 	 * This is intended to avoid sending too many of the same messages when the device comes back online or becomes active (see delay_while_idle).
 	 * 
 	 * Note that there is no guarantee of the order in which messages get sent.
-	 * Note: A maximum of 4 different collapse keys is allowed at any given time. This means a FCM connection server can simultaneously store 4 different send-to-sync messages per client app. 
+	 * Note: A maximum of 4 different collapse keys is allowed at any given time. This means a FCM connection server can simultaneously store 4 different send-to-sync messages per client push.
 	 * If you exceed this number, there is no guarantee which 4 collapse keys the FCM connection server will keep.
 	 * 
 	 */
@@ -168,9 +168,9 @@ public class Notification {
 	}
 	/**
 	 * Sets the priority of the message. Valid values are "normal" and "high." On iOS, these correspond to APNs priorities 5 and 10.
-	 * By default, messages are sent with normal priority. Normal priority optimizes the client app's battery consumption and should be used unless immediate delivery is required. 
-	 * For messages with normal priority, the app may receive the message with unspecified delay.
-	 * When a message is sent with high priority, it is sent immediately, and the app can wake a sleeping device and open a network connection to your server.
+	 * By default, messages are sent with normal priority. Normal priority optimizes the client push's battery consumption and should be used unless immediate delivery is required.
+	 * For messages with normal priority, the push may receive the message with unspecified delay.
+	 * When a message is sent with high priority, it is sent immediately, and the push can wake a sleeping device and open a network connection to your server.
 	 * @see https://firebase.google.com/docs/cloud-messaging/concept-options#setting-the-priority-of-a-message
 	 */
 	public Notification priority(Integer p){
@@ -270,7 +270,7 @@ public class Notification {
 	}
 
 	/**
-	 * Indicates a sound to play when the device receives a notification. Supports default or the filename of a sound resource bundled in the app. Sound files must reside in /res/raw/.
+	 * Indicates a sound to play when the device receives a notification. Supports default or the filename of a sound resource bundled in the push. Sound files must reside in /res/raw/.
 	 */
 	public Notification sound(String sound){
 		return addNotificationAttribute("sound", sound);
@@ -297,7 +297,7 @@ public class Notification {
 		return addNotificationAttribute("click_action", intent_filter);
 	}
 	/**
-	 * Indicates the key to the body string for localization. Use the key in the app's string resources when populating this value.
+	 * Indicates the key to the body string for localization. Use the key in the push's string resources when populating this value.
 	 */
 	public Notification body_loc_key(String key){
 		return addNotificationAttribute("body_loc_key", key);
@@ -313,7 +313,7 @@ public class Notification {
 		return addNotificationAttribute("body_loc_key", arr);
 	}
 	/**
-	 * Indicates the key to the title string for localization. Use the key in the app's string resources when populating this value.
+	 * Indicates the key to the title string for localization. Use the key in the push's string resources when populating this value.
 	 */
 	public Notification title_loc_key(String key){
 		return addNotificationAttribute("title_loc_key", key);

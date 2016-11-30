@@ -1,5 +1,6 @@
 package by.silverscreen.service;
 
+import by.silverscreen.Entities.PushEntity;
 import by.silverscreen.Entities.TokenEntity;
 
 import java.util.Set;
@@ -16,4 +17,9 @@ public interface DataService {
     TokenEntity checkName(String name);
 
     TokenEntity checkToken(String token);
+
+    Set<TokenEntity> getAllTokens();
+
+    boolean sendPush(PushEntity pushEntity);
+
 }

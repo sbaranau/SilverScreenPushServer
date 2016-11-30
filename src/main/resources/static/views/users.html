@@ -1,0 +1,43 @@
+
+<div class="section">
+    <div class="alert alert-success" ng-show="showSuccessAlert">
+        <strong>Done! </strong> {{successTextAlert}}
+    </div>
+    <div class="alert alert-danger" ng-show="showErrorAlert">
+        <strong>Error! </strong> {{errorMessage}}
+    </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <form role="form">
+                        <div class="form-group">
+                            <label class="control-label" for="exampleInputEmail1">Message Title</label>
+                            <input class="form-control" id="exampleInputEmail1" ng-model="message_title"
+                                   placeholder="Title" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Message:</label>
+                            <textarea class="form-control" rows="5" id="comment" ng-model="message_text"></textarea>
+                        </div>
+                        <button ng-click="submitMessage()" class="btn btn-default">Send message</button>
+                    </form>
+                </div>
+            </div>
+
+    </div>
+    <h4>{{headingTitle}}</h4>
+    <div class="col-md-12">
+    <table ng-table="tableParams" class="table table-bordered table-striped" show-filter="true">
+        <tr ng-repeat="user in data">
+            <td width="60" style="text-align: left" header="'ng-table/headers/checkbox.html'" >
+                <input type="checkbox" style="text-align: center" ng-click="usersetting(user)" ng-model="user.select" class="center-block">
+            </td>
+            <td data-title="'Login'" filter="{ 'login': 'text'}" sortable="'login'">{{user.login}}</td>
+            <td data-title="'Name'" filter="{ 'user': 'text'}" sortable="'user'">{{user.user}}</td>
+            <td data-title="'Date of birth'" sortable="'dateOfBirth'">{{user.dateOfBirth | date:'dd-MM-yyyy'}}</td>
+            <td data-title="'Gender'" filter="{ 'isman': 'text'}" sortable="'isman'">{{user.isman==1?'Man':'Female'}}</td>
+            <td data-title="'Last used'" sortable="'date'">{{user.date | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+        </tr>
+    </table>
+    </div>
+</div>

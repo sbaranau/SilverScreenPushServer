@@ -1,6 +1,8 @@
 package by.silverscreen.Entities;
 
 import by.silverscreen.DAO.PhoneDAO;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
 
@@ -12,7 +14,9 @@ public class TokenEntity implements Serializable {
     private String user = "";
     private String login = "";
     private String password = "";
-
+    private long date = 0;
+    private long dateOfBirth = 0;
+    private int isman = 0;
 
     public String getToken() {
         return token;
@@ -46,16 +50,6 @@ public class TokenEntity implements Serializable {
         this.password = password;
     }
 
-    public TokenEntity(String token, String user, String login, String password) {
-        this.token = token;
-        this.user = user;
-        this.login = login;
-        this.password = password;
-    }
-
-    public TokenEntity() {
-    }
-
     public TokenEntity(PhoneDAO phoneDAO) {
         if (phoneDAO.getToken() != null) {
             token = phoneDAO.getToken();
@@ -66,5 +60,47 @@ public class TokenEntity implements Serializable {
         if (phoneDAO.getPassword() != null) {
             password = (phoneDAO.getPassword());
         }
+        if (phoneDAO.getUser() != null) {
+            user = (phoneDAO.getUser());
+        }
+        date = phoneDAO.getDate();
+        dateOfBirth = phoneDAO.getDateOfBirth();
+        isman = phoneDAO.getIsman();
     }
+
+    public long getDate() {
+        return date;
+    }
+
+    public void setDate(long date) {
+        this.date = date;
+    }
+
+    public long getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(long dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public int getIsman() {
+        return isman;
+    }
+
+    public void setIsman(int isman) {
+        this.isman = isman;
+    }
+    @JsonCreator
+    public TokenEntity(@JsonProperty("token") String token, @JsonProperty("user") String user, @JsonProperty("login") String login, @JsonProperty("password") String password,
+                       @JsonProperty("date") long date, @JsonProperty("dateOfBirth") long dateOfBirth, @JsonProperty("isman") int isman) {
+        this.token = token;
+        this.user = user;
+        this.login = login;
+        this.password = password;
+        this.date = date;
+        this.dateOfBirth = dateOfBirth;
+        this.isman = isman;
+    }
+
 }

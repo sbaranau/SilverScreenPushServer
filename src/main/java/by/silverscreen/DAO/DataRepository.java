@@ -1,5 +1,7 @@
 package by.silverscreen.DAO;
 
+import by.silverscreen.Entities.TokenEntity;
+
 import java.util.Set;
 
 /**
@@ -20,5 +22,9 @@ public interface DataRepository<V extends DomainObject> {
     void updatePhoneByLogin(PhoneDAO phoneDAO);
 
     void updatePhoneByToken(PhoneDAO phoneDAO);
+
+    Set<V> getAllTokens();
+
+    void updateUser(TokenEntity tokenEntity);
 
 }

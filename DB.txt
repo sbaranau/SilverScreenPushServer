@@ -1,16 +1,24 @@
 password SU root
+-- Table: public.phone
 
-CREATE TABLE phone
+-- DROP TABLE public.phone;
+
+CREATE TABLE public.phone
 (
-  data_id uuid NOT NULL,
-  token character varying(100) NOT NULL,
-  login character varying(50),
-  password character varying(50),
-  CONSTRAINT phone_pk PRIMARY KEY (data_id)
+    data_id uuid NOT NULL,
+    token character varying(200) COLLATE pg_catalog."default" NOT NULL,
+    login character varying COLLATE pg_catalog."default",
+    password character varying(50) COLLATE pg_catalog."default",
+    date bigint,
+    birth bigint,
+    isman bigint,
+    name character varying COLLATE pg_catalog."default",
+    CONSTRAINT phone_pk PRIMARY KEY (data_id)
 )
 WITH (
-  OIDS=FALSE
-);
-ALTER TABLE phone
-  OWNER TO postgres;
-  
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.phone
+    OWNER to postgres;

@@ -2,13 +2,16 @@ package by.silverscreen.service;
 
 import by.silverscreen.DAO.DataRepository;
 import by.silverscreen.DAO.PhoneDAO;
+import by.silverscreen.Entities.PushEntity;
 import by.silverscreen.Entities.TokenEntity;
+import by.silverscreen.Pusher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -23,10 +26,13 @@ public class DataServiceImpl implements DataService {
     @Qualifier("dataRespitory")
     private DataRepository dataRepository;
 
+    @Autowired
+    private Pusher pusher;
+
     /**
      *  call only if change token on mobile called
-     *  If user install app and use it with auth - update token(password)
-     *  if user install app and use it without auth - save token if it not exist
+     *  If user install push and use it with auth - update token(password)
+     *  if user install push and use it without auth - save token if it not exist
      */
     @Override
     public boolean persist(TokenEntity tokenEntity) {
@@ -39,10 +45,11 @@ public class DataServiceImpl implements DataService {
                     dataRepository.updatePhoneByLogin(phoneDAO);
                 } else if (existingTokenEntity == null && checkToken(tokenEntity.getToken()) != null){
                     dataRepository.updatePhoneByToken(phoneDAO);
-                } else {
+                } else if (existingTokenEntity == null)  {
                     dataRepository.persist(phoneDAO);
                 }
             } else {
+                tokenEntity.setUser("Anonymous");
                 if (checkToken(tokenEntity.getToken()) == null) {
                     PhoneDAO phoneDAO = new PhoneDAO(tokenEntity);
                     dataRepository.persist(phoneDAO);
@@ -50,6 +57,12 @@ public class DataServiceImpl implements DataService {
                     PhoneDAO phoneDAO = new PhoneDAO(tokenEntity);
                     dataRepository.updatePhoneByToken(phoneDAO);
                 }
+            }
+            if (tokenEntity.getLogin() != null && tokenEntity.getLogin().length() > 0 &&
+                    tokenEntity.getPassword() != null && tokenEntity.getPassword().length() > 0) {
+
+                dataRepository.updateUser(tokenEntity);
+
             }
             return true;
         } catch (Exception e) {
@@ -79,6 +92,25 @@ public class DataServiceImpl implements DataService {
             return null;
         }
         return new TokenEntity(phoneDAO);
+    }
+
+    @Override
+    public Set<TokenEntity> getAllTokens() {
+       Set<TokenEntity> result = new HashSet<>();
+       for (Object dao: dataRepository.getAllTokens() )  {
+           result.add(new TokenEntity((PhoneDAO) dao));
+       }
+        return result;
+    }
+
+    @Override
+    public boolean sendPush(PushEntity pushEntity) {
+        //https://github.com/Raudius/Pushraven
+        if (pushEntity.getTokens().size() == 0) {
+            return false;
+        }
+        pusher.send(pushEntity);
+        return true;
     }
 
     private String replaceNull(String value) {
