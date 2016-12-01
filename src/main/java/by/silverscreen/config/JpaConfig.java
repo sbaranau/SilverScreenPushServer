@@ -5,6 +5,7 @@ import by.silverscreen.controllers.PhoneRegistrator;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -28,8 +29,10 @@ public class JpaConfig implements TransactionManagementConfigurer {
 
     @Value("${dataSource.driverClassName}")
     private String driver;
-    @Value("${dataSource.url}")
+    @Value("${OPENSHIFT_POSTGRESQL_DB_HOST}")
     private String url;
+    @Value("${OPENSHIFT_POSTGRESQL_DB_PORT}")
+    private String port;
     @Value("${dataSource.username}")
     private String username;
     @Value("${dataSource.password}")
@@ -44,7 +47,8 @@ public class JpaConfig implements TransactionManagementConfigurer {
     public DataSource configureDataSource() {
         HikariConfig config = new HikariConfig();
         config.setDriverClassName(driver);
-        config.setJdbcUrl(url);
+
+        config.setJdbcUrl("jdbc:postgresql://" +url + ":" + port + "/silverscreen");
         config.setUsername(username);
         config.setPassword(password);
 
