@@ -18,6 +18,7 @@ import java.util.Set;
 /**
  * Created by sbaranau on 11/25/2016.
  */
+@RequestMapping("api")
 @Controller
 public class PhoneRegistrator {
 
@@ -27,7 +28,7 @@ public class PhoneRegistrator {
 
 
     private static final Logger LOG = Logger.getLogger(PhoneRegistrator.class);
-
+    @CrossOrigin
     @RequestMapping(value = "/token", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody
     Map<String, Object> getToken (@RequestBody TokenEntity data) throws RestException {
@@ -43,7 +44,7 @@ public class PhoneRegistrator {
             throw new RestException(e);
         }
     }
-
+    @CrossOrigin
     @RequestMapping(value = "/tokens", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     public @ResponseBody
     Map<String, Object> getAllToken () throws RestException {
@@ -57,7 +58,7 @@ public class PhoneRegistrator {
             throw new RestException(e);
         }
     }
-
+    @CrossOrigin
     @RequestMapping(value = "/send", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE})
     public @ResponseBody
     Map<String, Object> sendPush (@RequestBody PushEntity data) throws RestException {

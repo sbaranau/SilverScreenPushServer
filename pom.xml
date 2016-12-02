@@ -6,7 +6,7 @@
 	<groupId>by.silverscreen</groupId>
 	<artifactId>pushserver</artifactId>
 	<packaging>war</packaging>
-	<version>1.0</version>
+	<version>##1</version>
 	<name>pushserver</name>
 
 	<description>push server for silverscreen</description>
@@ -44,7 +44,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<!--<scope>provided</scope>-->
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.datatype</groupId>

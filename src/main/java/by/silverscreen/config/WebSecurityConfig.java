@@ -30,7 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic()
                 .and()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/token").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/token").permitAll()
                 .anyRequest().authenticated();
     }
 }

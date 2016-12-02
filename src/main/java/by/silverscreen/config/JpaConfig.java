@@ -33,6 +33,8 @@ public class JpaConfig implements TransactionManagementConfigurer {
     private String url;
     @Value("${OPENSHIFT_POSTGRESQL_DB_PORT}")
     private String port;
+    @Value("${dataSource.url}")
+    private String basehost;
     @Value("${dataSource.username}")
     private String username;
     @Value("${dataSource.password}")
@@ -48,7 +50,11 @@ public class JpaConfig implements TransactionManagementConfigurer {
         HikariConfig config = new HikariConfig();
         config.setDriverClassName(driver);
 
-        config.setJdbcUrl("jdbc:postgresql://" +url + ":" + port + "/silverscreen");
+        if (url == null || port == null) {
+            config.setJdbcUrl(basehost);
+        } else {
+            config.setJdbcUrl("jdbc:postgresql://" +url + ":" + port + "/silverscreen");
+        }
         config.setUsername(username);
         config.setPassword(password);
 
