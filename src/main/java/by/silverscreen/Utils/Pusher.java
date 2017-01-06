@@ -1,4 +1,4 @@
-package by.silverscreen;
+package by.silverscreen.Utils;
 
 import by.silverscreen.Entities.PushEntity;
 import by.silverscreen.pushraven.FcmResponse;
@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
-
 /**
  * Created by sbaranau on 11/25/2016.
  */
@@ -17,35 +15,43 @@ import java.util.HashMap;
 public class Pusher {
 
     private String serverkey;
-
+    private String serverkeyIos;
     @Autowired
-    public Pusher(@Value("${fcm.serverkey}") String serverkey) {
+    public Pusher(@Value("${fcm.serverkey}") String serverkey, @Value("${fcm.serverkeyIos}") String serverkeyIos) {
         this.serverkey = serverkey;
         System.out.println("================== " + serverkey + "================== ");
+        this.serverkeyIos = serverkeyIos;
+        System.out.println("================== " + serverkeyIos + "================== ");
     }
-    public void send(PushEntity pushEntity) {
+    public void sendAndr(PushEntity pushEntity) {
 
         Pushraven.setKey(serverkey);
 
-
         // create Notification object
         Notification raven = new Notification();
+        raven.restricted_package_name("com.simpity.silverscreen");
+        // build raven message using the builder pattern
+        send(pushEntity, raven);
+    }
 
+    public void sendIos(PushEntity pushEntity) {
+        Pushraven.setKey(serverkeyIos);
+        Notification raven = new Notification();
+        raven.restricted_package_name("com.simpity.SilverScreenCinema");
+        send(pushEntity, raven);
+
+
+    }
+
+    private void send(PushEntity pushEntity, Notification raven) {
+        // build raven message using the builder pattern
         if (pushEntity.getTokens().size() == 1) {
             raven.to(pushEntity.getTokens().get(0));
         } else {
             raven.addAllMulticasts(pushEntity.getTokens());
         }
-
-      /*  HashMap<String, Object> data = new HashMap<String, Object>();
-        data.put("Hello", "World!");
-        data.put("Marco", "Polo");
-        data.put("Foo", "Bar");*/
-
-        // build raven message using the builder pattern
         raven
                 .time_to_live(100)
-                .restricted_package_name("com.simpity.silverscreen")
                /* .data(data)*/
                 .dry_run(false)
                 .title(pushEntity.getTitle())
@@ -53,10 +59,8 @@ public class Pusher {
                 .color("#ff0000");
 
 
-
-
         // push the raven message
-      //  FcmResponse response = Pushraven.push(raven);
+        //  FcmResponse response = Pushraven.push(raven);
 
         // alternatively set static notification first.
         Pushraven.setNotification(raven);

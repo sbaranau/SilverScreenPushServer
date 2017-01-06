@@ -14,12 +14,6 @@ public class PushEntity {
     public PushEntity() {
     }
 
-    public PushEntity(List<String> tokens, String title, String message) {
-        this.tokens = tokens;
-        this.title = title;
-        this.message = message;
-    }
-
     public List<String> getTokens() {
         return tokens;
     }

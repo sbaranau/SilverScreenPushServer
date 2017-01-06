@@ -4,15 +4,17 @@ import by.silverscreen.DAO.DataRepository;
 import by.silverscreen.DAO.PhoneDAO;
 import by.silverscreen.Entities.PushEntity;
 import by.silverscreen.Entities.TokenEntity;
-import by.silverscreen.Pusher;
+import by.silverscreen.Utils.Pusher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+import java.util.function.BiFunction;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 /**
  * Created by sbaranau on 11/25/2016.
@@ -41,7 +43,7 @@ public class DataServiceImpl implements DataService {
                 TokenEntity existingTokenEntity = checkName(tokenEntity.getLogin());
                 PhoneDAO phoneDAO = new PhoneDAO(tokenEntity);
                 if (existingTokenEntity != null && (!existingTokenEntity.getToken().equals(tokenEntity.getToken()) ||
-                    !existingTokenEntity.getPassword().equals(tokenEntity.getPassword()))) {
+                        !existingTokenEntity.getPassword().equals(tokenEntity.getPassword()))) {
                     dataRepository.updatePhoneByLogin(phoneDAO);
                 } else if (existingTokenEntity == null && checkToken(tokenEntity.getToken()) != null){
                     dataRepository.updatePhoneByToken(phoneDAO);
@@ -58,12 +60,10 @@ public class DataServiceImpl implements DataService {
                     dataRepository.updatePhoneByToken(phoneDAO);
                 }
             }
-            if (tokenEntity.getLogin() != null && tokenEntity.getLogin().length() > 0 &&
+           /* if (tokenEntity.getLogin() != null && tokenEntity.getLogin().length() > 0 &&
                     tokenEntity.getPassword() != null && tokenEntity.getPassword().length() > 0) {
-
                 dataRepository.updateUser(tokenEntity);
-
-            }
+            }*/
             return true;
         } catch (Exception e) {
             LOG.error("ERROR SAVING DATA: " + e.getMessage(), e);
@@ -96,10 +96,10 @@ public class DataServiceImpl implements DataService {
 
     @Override
     public Set<TokenEntity> getAllTokens() {
-       Set<TokenEntity> result = new HashSet<>();
-       for (Object dao: dataRepository.getAllTokens() )  {
-           result.add(new TokenEntity((PhoneDAO) dao));
-       }
+        Set<TokenEntity> result = new HashSet<>();
+        for (Object dao: dataRepository.getAllTokens() )  {
+            result.add(new TokenEntity((PhoneDAO) dao));
+        }
         return result;
     }
 
@@ -109,7 +109,31 @@ public class DataServiceImpl implements DataService {
         if (pushEntity.getTokens().size() == 0) {
             return false;
         }
-        pusher.send(pushEntity);
+        PushEntity andPush = new PushEntity();
+        andPush.setMessage(pushEntity.getMessage());
+        andPush.setTitle(pushEntity.getTitle());
+        PushEntity iosPush = new PushEntity();
+        iosPush.setMessage(pushEntity.getMessage());
+        iosPush.setTitle(pushEntity.getTitle());
+
+        Predicate<PhoneDAO> isNotNull = (s2) -> s2 != null;
+
+        BiFunction<List<String>,String, List<String>> getPhoneDAO = (tokens, type) -> {
+            Predicate<PhoneDAO> isIos = ((s) -> (s.getSystem().contains(type)));
+            return  tokens.stream().filter(token -> isNotNull.and(isIos).test(dataRepository.checkToken(token))).collect(Collectors.toList());
+        };
+
+        List<String> iosTokens = getPhoneDAO.apply(pushEntity.getTokens(), "ios");
+        List<String> andTokens = getPhoneDAO.apply(pushEntity.getTokens(), "android");
+        if (andTokens.size() > 0) {
+            andPush.setTokens(andTokens);
+            pusher.sendAndr(andPush);
+        }
+        if (iosTokens.size() > 0) {
+            iosPush.setTokens(iosTokens);
+            pusher.sendIos(iosPush);
+        }
+        // pusher.send(pushEntity);
         return true;
     }
 
@@ -120,3 +144,30 @@ public class DataServiceImpl implements DataService {
         return value;
     }
 }
+/*
+ PushEntity andPush = new PushEntity();
+        andPush.setMessage(pushEntity.getMessage());
+        andPush.setTitle(pushEntity.getTitle());
+        PushEntity iosPush = new PushEntity();
+        iosPush.setMessage(pushEntity.getMessage());
+        iosPush.setTitle(pushEntity.getTitle());
+
+        Predicate<PhoneDAO> isNotNull = (s2) -> s2 != null;
+
+        BiFunction<List<String>,String, List<String>> getPhoneDAO = (tokens, type) -> {
+            Predicate<PhoneDAO> isIos = ((s) -> (s.getSystem().contains(type)));
+            return  tokens.stream().filter(token -> isNotNull.and(isIos).test(dataRepository.checkToken(token))).collect(Collectors.toList());
+        };
+
+        List<String> iosTokens = getPhoneDAO.apply(pushEntity.getTokens(), "ios");
+        List<String> andTokens = getPhoneDAO.apply(pushEntity.getTokens(), "android");
+        if (andTokens.size() > 0) {
+            andPush.setTokens(andTokens);
+            pusher.sendAndr(andPush);
+        }
+        if (iosTokens.size() > 0) {
+            iosPush.setTokens(iosTokens);
+            pusher.sendIos(iosPush);
+        }
+       // pusher.send(pushEntity);
+*/

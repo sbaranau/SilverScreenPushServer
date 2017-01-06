@@ -23,12 +23,12 @@ public class DataRepositoryImpl implements DataRepository<PhoneDAO> {
     @Override
     public void persist(PhoneDAO object) {
 
-        Object[] params = new Object[] { object.getId(), object.getToken(), object.getLogin(), object.getPassword(), new Date().getTime(), object.getDateOfBirth(), object.getUser(), object.getIsman() };
-        int[] types = new int[] {        Types.VARCHAR,    Types.VARCHAR,      Types.VARCHAR,      Types.VARCHAR,      Types.BIGINT,          Types.BIGINT ,       Types.VARCHAR,      Types.BIGINT  };
+        Object[] params = new Object[] { object.getId(), object.getToken(), object.getLogin(), object.getPassword(), new Date().getTime(), object.getDateOfBirth(), object.getUser(), object.getIsman() , object.getSystem()};
+        int[] types = new int[] {        Types.VARCHAR,    Types.VARCHAR,      Types.VARCHAR,      Types.VARCHAR,      Types.BIGINT,          Types.BIGINT ,       Types.VARCHAR,      Types.BIGINT,      Types.VARCHAR, };
 
         jdbcOperations.update("INSERT INTO phone(\n" +
-                "            data_id, token, login, password, date, birth,name, isman )\n" +
-                "    VALUES (cast(? as UUID), ?, ?, ?, ?,?,?,?);", params, types);
+                "            data_id, token, login, password, date, birth,name, isman, system )\n" +
+                "    VALUES (cast(? as UUID), ?, ?, ?, ?,?,?,?,?);", params, types);
     }
 
     @Override
@@ -49,8 +49,12 @@ public class DataRepositoryImpl implements DataRepository<PhoneDAO> {
 
     @Override
     public PhoneDAO checkName(String name) {
+        SqlRowSet rowSet = jdbcOperations.queryForRowSet("SELECT data_id,token,login,password,name,isman,birth,system FROM phone p WHERE login LIKE '" + name +"';");
+        return getPhoneDAO(rowSet);
+    }
+
+    private PhoneDAO getPhoneDAO(SqlRowSet rowSet) {
         PhoneDAO result = null;
-        SqlRowSet rowSet = jdbcOperations.queryForRowSet("SELECT data_id,token,login,password,name,isman,birth,name FROM phone p WHERE login LIKE '" + name +"';");
         while (rowSet.next()) {
             result = new PhoneDAO();
             result.setId(UUID.fromString(rowSet.getString("data_id")));
@@ -60,47 +64,35 @@ public class DataRepositoryImpl implements DataRepository<PhoneDAO> {
             result.setUser(rowSet.getString("name"));
             result.setIsman(rowSet.getInt("isman"));
             result.setDateOfBirth(rowSet.getLong("birth"));
-            result.setUser(rowSet.getString("name"));
+            result.setSystem(rowSet.getString("system"));
         }
         return result;
     }
 
     @Override
     public PhoneDAO checkToken(String token) {
-        PhoneDAO result = null;
-        SqlRowSet rowSet = jdbcOperations.queryForRowSet("SELECT data_id,token,login,password,name,isman,birth,name FROM phone p WHERE token LIKE '" + token +"';");
-        while (rowSet.next()) {
-            result = new PhoneDAO();
-            result.setId(UUID.fromString(rowSet.getString("data_id")));
-            result.setLogin(rowSet.getString("login"));
-            result.setPassword(rowSet.getString("password"));
-            result.setToken(rowSet.getString("token"));
-            result.setUser(rowSet.getString("name"));
-            result.setIsman(rowSet.getInt("isman"));
-            result.setDateOfBirth(rowSet.getLong("birth"));
-            result.setUser(rowSet.getString("name"));
-        }
-        return result;
+        SqlRowSet rowSet = jdbcOperations.queryForRowSet("SELECT data_id,token,login,password,name,isman,birth,system FROM phone p WHERE token LIKE '" + token +"';");
+        return getPhoneDAO(rowSet);
     }
 
     @Override
     public void updatePhoneByLogin(PhoneDAO phoneDAO) {
-        Object[] params = new Object[] {  phoneDAO.getToken(), phoneDAO.getPassword(),  new Date().getTime(), phoneDAO.getDateOfBirth(), phoneDAO.getUser(), phoneDAO.getIsman(), phoneDAO.getLogin()};
-        int[] types = new int[] {          Types.VARCHAR,      Types.VARCHAR,             Types.BIGINT,           Types.BIGINT ,           Types.VARCHAR,      Types.BIGINT,         Types.VARCHAR   };
+        Object[] params = new Object[] {  phoneDAO.getToken(), phoneDAO.getPassword(),  new Date().getTime(), phoneDAO.getDateOfBirth(), phoneDAO.getUser(), phoneDAO.getIsman(), phoneDAO.getSystem(), phoneDAO.getLogin()};
+        int[] types = new int[] {          Types.VARCHAR,      Types.VARCHAR,             Types.BIGINT,           Types.BIGINT ,           Types.VARCHAR,      Types.BIGINT,         Types.VARCHAR,    Types.VARCHAR   };
 
         jdbcOperations.update("UPDATE phone \n" +
-                "            SET token=?, password=?, date=?, birth=?, name=?, isman=? \n" +
+                "            SET token=?, password=?, date=?, birth=?, name=?, isman=?, system=? \n" +
                 "            WHERE login=? ;",
                                 params, types);
     }
 
     @Override
     public void updatePhoneByToken(PhoneDAO phoneDAO) {
-        Object[] params = new Object[] {   phoneDAO.getLogin(), phoneDAO.getPassword(), new Date().getTime(), phoneDAO.getDateOfBirth(), phoneDAO.getUser(), phoneDAO.getIsman(), phoneDAO.getToken() };
-        int[] types = new int[] {          Types.VARCHAR,       Types.VARCHAR,       Types.BIGINT,           Types.BIGINT ,           Types.VARCHAR,      Types.BIGINT,            Types.VARCHAR  };
+        Object[] params = new Object[] {   phoneDAO.getLogin(), phoneDAO.getPassword(), new Date().getTime(), phoneDAO.getDateOfBirth(), phoneDAO.getUser(), phoneDAO.getIsman(), phoneDAO.getSystem(), phoneDAO.getToken() };
+        int[] types = new int[] {          Types.VARCHAR,       Types.VARCHAR,       Types.BIGINT,           Types.BIGINT ,           Types.VARCHAR,      Types.BIGINT,            Types.VARCHAR,        Types.VARCHAR  };
 
         jdbcOperations.update("UPDATE phone \n" +
-                        "            SET login=?, password=?, date=?, birth=?, name=?, isman=? \n" +
+                        "            SET login=?, password=?, date=?, birth=?, name=?, isman=?, system=? \n" +
                         "            WHERE token=? ;",
                 params, types);
     }
@@ -108,10 +100,9 @@ public class DataRepositoryImpl implements DataRepository<PhoneDAO> {
     @Override
     public Set<PhoneDAO> getAllTokens() {
         Set<PhoneDAO> results = new HashSet<>();
-        SqlRowSet rowSet = jdbcOperations.queryForRowSet("SELECT data_id,token,login,password,date,birth,isman,name FROM phone p;");
+        SqlRowSet rowSet = jdbcOperations.queryForRowSet("SELECT data_id,token,login,password,date,birth,isman,name,system FROM phone p;");
         while (rowSet.next()) {
-            PhoneDAO result;
-            result = new PhoneDAO();
+            PhoneDAO result = new PhoneDAO();
             result.setId(UUID.fromString(rowSet.getString("data_id")));
             result.setLogin(rowSet.getString("login"));
             result.setPassword(rowSet.getString("password"));
@@ -120,6 +111,7 @@ public class DataRepositoryImpl implements DataRepository<PhoneDAO> {
             result.setDateOfBirth(rowSet.getLong("birth"));
             result.setIsman(rowSet.getInt("isman"));
             result.setUser(rowSet.getString("name"));
+            result.setSystem(rowSet.getString("system"));
             results.add(result);
         }
         return results;

@@ -17,6 +17,7 @@ public class TokenEntity implements Serializable {
     private long date = 0;
     private long dateOfBirth = 0;
     private int isman = 0;
+    private String system = "";
 
     public String getToken() {
         return token;
@@ -66,6 +67,15 @@ public class TokenEntity implements Serializable {
         date = phoneDAO.getDate();
         dateOfBirth = phoneDAO.getDateOfBirth();
         isman = phoneDAO.getIsman();
+        system = phoneDAO.getSystem();
+    }
+
+    public String getSystem() {
+        return system;
+    }
+
+    public void setSystem(String system) {
+        this.system = system;
     }
 
     public long getDate() {
@@ -91,9 +101,10 @@ public class TokenEntity implements Serializable {
     public void setIsman(int isman) {
         this.isman = isman;
     }
+
     @JsonCreator
     public TokenEntity(@JsonProperty("token") String token, @JsonProperty("user") String user, @JsonProperty("login") String login, @JsonProperty("password") String password,
-                       @JsonProperty("date") long date, @JsonProperty("dateOfBirth") long dateOfBirth, @JsonProperty("isman") int isman) {
+                       @JsonProperty("date") long date, @JsonProperty("dateOfBirth") long dateOfBirth, @JsonProperty("isman") int isman, @JsonProperty("system") String system) {
         this.token = token;
         this.user = user;
         this.login = login;
@@ -101,6 +112,7 @@ public class TokenEntity implements Serializable {
         this.date = date;
         this.dateOfBirth = dateOfBirth;
         this.isman = isman;
+        this.system = system;
     }
 
 }

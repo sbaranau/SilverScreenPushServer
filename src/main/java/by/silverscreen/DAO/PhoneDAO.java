@@ -17,6 +17,7 @@ public class PhoneDAO implements DomainObject{
     private long dateOfBirth;
     private int isman;
     private String user;
+    private String system;
 
     public PhoneDAO() {
         date = 0;
@@ -26,6 +27,7 @@ public class PhoneDAO implements DomainObject{
         password = "";
         login = "";
         token = "";
+        system = "";
     }
 
     public PhoneDAO(TokenEntity tokenEntity) {
@@ -58,6 +60,14 @@ public class PhoneDAO implements DomainObject{
         if (tokenEntity.getIsman() != 0) {
             try {
                 isman = tokenEntity.getIsman();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        system = "";
+        if (tokenEntity.getSystem() != null) {
+            try {
+                system = tokenEntity.getSystem();
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -125,6 +135,15 @@ public class PhoneDAO implements DomainObject{
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+
+
+    public String getSystem() {
+        return system;
+    }
+
+    public void setSystem(String system) {
+        this.system = system;
     }
 
     public void setDateOfBirth(long dateOfBirth) {
