@@ -35,47 +35,46 @@ app.controller('usersController', function($scope, ngTableParams, $http,$filter)
     $scope.submitMessage = function() {
         var recipients = [];
         angular.forEach($scope.users, function(user) {
-            $scope.showSuccessAlert = false;
-            $scope.showErrorAlert = false;
-            if ($scope.message_title == undefined || $scope.message_title.length == 0) {
-                $scope.errorMessage = 'Please enter title';
-                $scope.showErrorAlert = true;
-                return;
-            }
-            if ($scope.message_text == undefined || $scope.message_text.length == 0) {
-                $scope.errorMessage = 'Please enter message';
-                $scope.showErrorAlert = true;
-                return;
-            }
             if (user.select) {
                 recipients.push(user.token);
             }
-            if (recipients.length > 0) {
-                var postData = {
-                    'tokens' : recipients,
-                    'title' : $scope.message_title,
-                    'message' : $scope.message_text
-
-                };
-                var parameter = JSON.stringify(postData);
-                $http.post(serverUrl + 'send', parameter).
-                success(function(data, status, headers, config) {
-                    // this callback will be called asynchronously
-                    // when the response is available
-                    console.log(data);
-                }).
-                error(function(data, status, headers, config) {
-                    // called asynchronously if an error occurs
-                    // or server returns response with an error status.
-                });
-                $scope.successTextAlert = "Message sent";
-                $scope.showSuccessAlert = true;
-            } else {
-                $scope.errorMessage = 'Please select recipient';
-                $scope.showErrorAlert = true;
-            }
-
         });
+        $scope.showSuccessAlert = false;
+        $scope.showErrorAlert = false;
+        if ($scope.message_title == undefined || $scope.message_title.length == 0) {
+            $scope.errorMessage = 'Please enter title';
+            $scope.showErrorAlert = true;
+            return;
+        }
+        if ($scope.message_text == undefined || $scope.message_text.length == 0) {
+            $scope.errorMessage = 'Please enter message';
+            $scope.showErrorAlert = true;
+            return;
+        }
+        if (recipients.length > 0) {
+            var postData = {
+                'tokens' : recipients,
+                'title' : $scope.message_title,
+                'message' : $scope.message_text
+
+            };
+            var parameter = JSON.stringify(postData);
+            $http.post(serverUrl + 'send', parameter).
+            success(function(data, status, headers, config) {
+                // this callback will be called asynchronously
+                // when the response is available
+                console.log(data);
+            }).
+            error(function(data, status, headers, config) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+            });
+            $scope.successTextAlert = "Message sent";
+            $scope.showSuccessAlert = true;
+        } else {
+            $scope.errorMessage = 'Please select recipient';
+            $scope.showErrorAlert = true;
+        }
     };
 
 });
