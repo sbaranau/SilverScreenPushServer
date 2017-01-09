@@ -17,62 +17,21 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.TransactionManagementConfigurer;
 
 import javax.sql.DataSource;
+import java.sql.SQLException;
 import java.util.Properties;
 
 /**
  * Created by sbaranau on 11/25/2016.
  */
+
+
 @Configuration
-@EnableTransactionManagement
-@EnableJpaRepositories(basePackageClasses = PushserverApplication.class)
-public class JpaConfig implements TransactionManagementConfigurer {
-
-    @Value("${dataSource.driverClassName}")
-    private String driver;
-    @Value("${POSTGRESQL_DB_HOST}")
-    private String url;
-    @Value("${POSTGRESQL_DB_PORT}")
-    private String port;
-    @Value("${dataSource.username}")
-    private String username;
-    @Value("${dataSource.password}")
-    private String password;
-    @Value("${hibernate.dialect}")
-    private String dialect;
-    @Value("${hibernate.hbm2ddl.auto}")
-    private String hbm2ddlAuto;
-
+@ConfigurationProperties(prefix = "spring.datasource")
+public class JpaConfig extends HikariConfig {
 
     @Bean
-    public DataSource configureDataSource() {
-        HikariConfig config = new HikariConfig();
-        config.setDriverClassName(driver);
-
-        config.setJdbcUrl("jdbc:postgresql://" +url + ":" + port + "/silverscreen");
-        config.setUsername(username);
-        config.setPassword(password);
-
-        return new HikariDataSource(config);
-    }
-
-    @Bean
-    public LocalContainerEntityManagerFactoryBean configureEntityManagerFactory() {
-        LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
-        entityManagerFactoryBean.setDataSource(configureDataSource());
-        entityManagerFactoryBean.setPackagesToScan("by.silverscreen");
-        entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-
-        Properties jpaProperties = new Properties();
-        jpaProperties.put(org.hibernate.cfg.Environment.DIALECT, dialect);
-        jpaProperties.put(org.hibernate.cfg.Environment.HBM2DDL_AUTO, hbm2ddlAuto);
-        entityManagerFactoryBean.setJpaProperties(jpaProperties);
-
-        return entityManagerFactoryBean;
-    }
-
-    @Bean
-    public PlatformTransactionManager annotationDrivenTransactionManager() {
-        return new JpaTransactionManager();
+    public DataSource dataSource() throws SQLException {
+        return new HikariDataSource(this);
     }
 
 }

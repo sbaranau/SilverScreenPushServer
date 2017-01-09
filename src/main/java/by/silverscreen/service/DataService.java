@@ -12,8 +12,6 @@ public interface DataService {
 
     boolean persist(TokenEntity tokenEntity);
 
-    Set<String> getRandomData();
-
     TokenEntity checkName(String name);
 
     TokenEntity checkToken(String token);
