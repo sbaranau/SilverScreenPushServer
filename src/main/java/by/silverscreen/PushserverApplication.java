@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ComponentScan
+@SpringBootApplication
 @EnableAutoConfiguration
 public class PushserverApplication extends SpringBootServletInitializer {
 

@@ -19,6 +19,10 @@ public class TokenEntity implements Serializable {
     private int isman = 0;
     private String system = "";
 
+    public TokenEntity() {
+
+    }
+
     public String getToken() {
         return token;
     }

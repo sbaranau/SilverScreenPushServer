@@ -17,7 +17,21 @@
 		<version>1.4.2.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-
+	<profiles>
+		<profile>
+			<id>sample-profile</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<jdbc.driver>org.postgresql.Driver</jdbc.driver>
+				<jdbc.user>postgres</jdbc.user>
+				<jdbc.password>root</jdbc.password>
+				<jdbc.url>jdbc:postgresql://10.0.1.2:5432/silverscreen</jdbc.url>
+				<jdbc.database.name>public.silverscreen</jdbc.database.name>
+			</properties>
+		</profile>
+	</profiles>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -26,13 +40,20 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.testTarget>1.8</maven.compiler.testTarget>
 		<maven.compiler.testSource>1.8</maven.compiler.testSource>
+		<jooq.version>3.9.0</jooq.version>
 	</properties>
 
 	<dependencies>
+		<!-- Spring framework -->
 		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!--<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mustache</artifactId>
-		</dependency>
+		</dependency>-->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -57,7 +78,17 @@
 			<artifactId>json-simple</artifactId>
 			<version>1.1</version>
 		</dependency>
-
+		<!-- https://mvnrepository.com/artifact/org.jooq/jooq -->
+		<dependency>
+			<groupId>org.jooq</groupId>
+			<artifactId>jooq</artifactId>
+			<version>${jooq.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jooq</groupId>
+			<artifactId>jooq-meta</artifactId>
+			<version>${jooq.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -73,8 +104,8 @@
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>9.4-1201-jdbc41</version>
-			<scope>runtime</scope>
+			<version>9.4-1202-jdbc42</version>
+			<!--<scope>runtime</scope>-->
 		</dependency>
 		<dependency>
 			<groupId>org.webjars</groupId>
@@ -141,26 +172,72 @@
 					</execution>
 				</executions>
 			</plugin>
+
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>animal-sniffer-maven-plugin</artifactId>
-				<version>1.15</version>
+				<groupId>org.jooq</groupId>
+				<artifactId>jooq-codegen-maven</artifactId>
+				<version>3.3.2</version>
 				<executions>
 					<execution>
-						<id>signature-check</id>
-						<phase>verify</phase>
 						<goals>
-							<goal>check</goal>
+							<goal>generate</goal>
 						</goals>
 					</execution>
 				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.postgresql</groupId>
+						<artifactId>postgresql</artifactId>
+						<version>9.4-1202-jdbc42</version>
+					</dependency>
+				</dependencies>
 				<configuration>
-					<signature>
-						<groupId>org.codehaus.mojo.signature</groupId>
-						<artifactId>java17</artifactId>
-						<version>1.0</version>
-					</signature>
+					<jdbc>
+						<driver>${jdbc.driver}</driver>
+						<url>${jdbc.url}</url>
+						<user>${jdbc.user}</user>
+						<password>${jdbc.password}</password>
+					</jdbc>
+					<generator>
+						<name>org.jooq.util.DefaultGenerator</name>
+						<database>
+							<name>org.jooq.util.postgres.PostgresDatabase</name>
+							<includes>.*</includes>
+							<excludes></excludes>
+							<inputSchema>public</inputSchema>
+						</database>
+						<generate>
+							<deprecated>false</deprecated>
+						</generate>
+						<target>
+							<packageName>by.silverscreen.jooq</packageName>
+							<directory>src/main/java</directory>
+						</target>
+					</generator>
 				</configuration>
+			</plugin>
+			<plugin>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>build-helper-maven-plugin</artifactId>
+			<version>1.8</version>
+			<!--<executions>
+				<execution>
+					<id>add-source</id>
+					<phase>generate-sources</phase>
+					<goals>
+						<goal>add-source</goal>
+					</goals>
+					<configuration>
+						<sources>
+							<source>src/generated-sources/jooq</source>
+						</sources>
+					</configuration>
+				</execution>
+			</executions>-->
+		</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>

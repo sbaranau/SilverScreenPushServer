@@ -19,7 +19,7 @@ public class PhoneDAO implements DomainObject{
     private String user;
     private String system;
 
-    public PhoneDAO() {
+    PhoneDAO() {
         date = 0;
         user = "";
         isman = 0;
@@ -94,7 +94,7 @@ public class PhoneDAO implements DomainObject{
         return login;
     }
 
-    public void setLogin(String login) {
+    void setLogin(String login) {
         this.login = login;
     }
 
@@ -119,7 +119,7 @@ public class PhoneDAO implements DomainObject{
         }
     }
 
-    public void setDate(long date) {
+    void setDate(long date) {
         this.date = date;
     }
 
@@ -146,7 +146,7 @@ public class PhoneDAO implements DomainObject{
         this.system = system;
     }
 
-    public void setDateOfBirth(long dateOfBirth) {
+    void setDateOfBirth(long dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -162,7 +162,7 @@ public class PhoneDAO implements DomainObject{
             ex.printStackTrace();
         }
     }
-    public void setIsman(int isman) {
+    void setIsman(int isman) {
         this.isman = isman;
     }
     public String getUser() {
