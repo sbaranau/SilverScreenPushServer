@@ -1,24 +1,18 @@
 package by.silverscreen.config;
 
-import by.silverscreen.PushserverApplication;
-import by.silverscreen.controllers.PhoneRegistrator;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import org.jooq.DSLContext;
+import org.jooq.impl.DSL;
+import org.jooq.tools.jdbc.JDBCUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.orm.jpa.JpaTransactionManager;
-import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
-import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
-import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.transaction.annotation.TransactionManagementConfigurer;
+
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
-import java.util.Properties;
 
 /**
  * Created by sbaranau on 11/25/2016.
@@ -34,4 +28,9 @@ public class JpaConfig extends HikariConfig {
         return new HikariDataSource(this);
     }
 
+    @Bean
+    DSLContext dslContext(@Value("${spring.datasource.jdbcUrl}") final String url)
+            throws SQLException {
+        return DSL.using(dataSource(), JDBCUtils.dialect(url));
+    }
 }

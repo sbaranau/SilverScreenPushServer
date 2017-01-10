@@ -10,12 +10,13 @@ import org.springframework.transaction.annotation.Transactional;
 import org.jooq.Record;
 import org.jooq.Result;
 
+import java.util.Date;
+
 
 /**
  * Created by sergey on 1/7/17.
  */
 @Service
-@Transactional
 public class JooqRepository {
     @Autowired
     private DSLContext dsl;
@@ -32,50 +33,50 @@ public class JooqRepository {
     public Record checkToken(String token) {
         return dsl.select().from(PHONE).where(PHONE.TOKEN.like(token)).fetchOne();
     }
-
+    @Transactional
     public void deleteByLogin(String name) {
         dsl.deleteFrom(PHONE).where(PHONE.LOGIN.like(name)).execute();
     }
-
+    @Transactional
     public void deleteByToken(String token) {
         dsl.deleteFrom(PHONE).where(PHONE.TOKEN.like(token)).execute();
     }
-
+    @Transactional
     public void persist(PhoneDAO object) {
         dsl.insertInto(PHONE)
                 .set(PHONE.DATA_ID, object.getId())
                 .set(PHONE.TOKEN, object.getToken())
                 .set(PHONE.LOGIN, object.getLogin())
                 .set(PHONE.PASSWORD, object.getPassword())
-                .set(PHONE.DATE, object.getDate())
+                .set(PHONE.DATE, new Date().getTime())
                 .set(PHONE.BIRTH, object.getDateOfBirth())
                 .set(PHONE.NAME, object.getUser())
                 .set(PHONE.ISMAN, (long) object.getIsman())
                 .set(PHONE.SYSTEM, object.getSystem())
         .execute();
     }
-
+    @Transactional
     public void updatePhoneByLogin(PhoneDAO phoneDAO) {
         dsl.update(PHONE)
                 .set(PHONE.DATA_ID, phoneDAO.getId())
                 .set(PHONE.TOKEN, phoneDAO.getToken())
                // .set(PHONE.LOGIN, phoneDAO.getLogin())
                 .set(PHONE.PASSWORD, phoneDAO.getPassword())
-                .set(PHONE.DATE, phoneDAO.getDate())
+                .set(PHONE.DATE, new Date().getTime())
                 .set(PHONE.BIRTH, phoneDAO.getDateOfBirth())
                 .set(PHONE.NAME, phoneDAO.getUser())
                 .set(PHONE.ISMAN, (long) phoneDAO.getIsman())
                 .set(PHONE.SYSTEM, phoneDAO.getSystem()).where(PHONE.LOGIN.like(phoneDAO.getLogin()))
                 .execute();
     }
-
+    @Transactional
     public void updatePhoneByToken(PhoneDAO phoneDAO) {
-         dsl.update(PHONE)
+        dsl.update(PHONE)
                 .set(PHONE.DATA_ID, phoneDAO.getId())
               //  .set(PHONE.TOKEN, phoneDAO.getToken())
                 .set(PHONE.LOGIN, phoneDAO.getLogin())
                 .set(PHONE.PASSWORD, phoneDAO.getPassword())
-                .set(PHONE.DATE, phoneDAO.getDate())
+                .set(PHONE.DATE, new Date().getTime())
                 .set(PHONE.BIRTH, phoneDAO.getDateOfBirth())
                 .set(PHONE.NAME, phoneDAO.getUser())
                 .set(PHONE.ISMAN, (long) phoneDAO.getIsman())

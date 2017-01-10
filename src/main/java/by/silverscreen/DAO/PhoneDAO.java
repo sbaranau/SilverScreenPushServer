@@ -2,12 +2,13 @@ package by.silverscreen.DAO;
 
 import by.silverscreen.Entities.TokenEntity;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 /**
  * Created by sbaranau on 11/25/2016.
  */
-public class PhoneDAO implements DomainObject{
+public class PhoneDAO implements Serializable {
 
     private UUID id;
     private String token;
@@ -94,7 +95,7 @@ public class PhoneDAO implements DomainObject{
         return login;
     }
 
-    void setLogin(String login) {
+    public void setLogin(String login) {
         this.login = login;
     }
 

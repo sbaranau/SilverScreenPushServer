@@ -32,12 +32,12 @@
             <td width="60" style="text-align: left" header="'ng-table/headers/checkbox.html'" >
                 <input type="checkbox" style="text-align: center" ng-click="usersetting(user)" ng-model="user.select" class="center-block">
             </td>
-            <td data-title="'Login'" filter="{ 'login': 'text'}" sortable="'login'">{{user.login}}</td>
-            <td data-title="'Name'" filter="{ 'user': 'text'}" sortable="'user'">{{user.user}}</td>
-            <td data-title="'System'" filter="{ 'system': 'text'}" sortable="'system'">{{user.system}}</td>
-            <td data-title="'Date of birth'" sortable="'dateOfBirth'">{{user.dateOfBirth | date:'dd-MM-yyyy'}}</td>
-            <td data-title="'Gender'" filter="{ 'isman': 'text'}" sortable="'isman'">{{user.isman==1?'Man':'Female'}}</td>
-            <td data-title="'Last used'" sortable="'date'">{{user.date | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+            <td data-title="'Логин'" filter="{ 'login': 'text'}" sortable="'login'">{{user.login}}</td>
+            <td data-title="'Имя'" filter="{ 'user': 'text'}" sortable="'user'">{{user.user}}</td>
+            <td data-title="'Система'" filter="{ 'system': 'select'}" filter-data="systems" sortable="'system'">{{user.system}}</td>
+            <td data-title="'Дата рождения'" sortable="'dateOfBirth'">{{user.dateOfBirth | date:'dd-MM-yyyy'}}</td>
+            <td data-title="'Пол'" filter="{ 'isman': 'select'}" filter-data="gender" sortable="'isman'">{{user.isman}}</td>
+            <td data-title="'Последный вход'" sortable="'date'">{{user.date | date:'dd-MM-yyyy HH:mm:ss'}}</td>
         </tr>
     </table>
     </div>

@@ -2,12 +2,22 @@
  * Created by sbaranau on 11/28/2016.
  */
 app.controller('usersController', function($scope, ngTableParams, $http,$filter) {
-    $scope.headingTitle = "Users and last Enter date";
-  //  $scope.data = [{name: "Moroni", age: 50},{name: "Moroni2", age: 50} /*,*/];
+    $scope.headingTitle = "Пользователи";
+    $scope.systems = [{id: "", title: ""}, {id: 'ios', title: 'ios'}, {id: 'Android', title: 'Android'}];
+    $scope.gender = [{id: "", title: ""}, {id: 'мужской', title: 'мужской'}, {id: 'женский', title: 'женский'}, {id: 'скрыт', title: 'скрыт'}];
     $http.get(serverUrl + 'tokens')
         .then(
             function(response){
                 $scope.users = response.data.data;
+                angular.forEach($scope.users, function(user) {
+                    if (user.login == "" || user.isman == 0) {
+                        user.isman = 'скрыт'
+                    } else if (user.isman == 1) {
+                        user.isman = 'мужской'
+                    } else {
+                        user.isman = 'женский'
+                    }
+                });
                 $scope.tableParams = new ngTableParams({
                     page: 1,
                     count: 10
@@ -16,6 +26,7 @@ app.controller('usersController', function($scope, ngTableParams, $http,$filter)
                     getData: function($defer, params) {
                         $scope.data = params.sorting() ? $filter('orderBy')($scope.users, params.orderBy()) : $scope.users;
                         $scope.data = params.filter() ? $filter('filter')($scope.data, params.filter()) : $scope.data;
+                        params.total($scope.data.length);
                         $scope.data = $scope.data.slice((params.page() - 1) * params.count(), params.page() * params.count());
                         $defer.resolve($scope.data);
                     }
@@ -32,6 +43,10 @@ app.controller('usersController', function($scope, ngTableParams, $http,$filter)
             user.select = $scope.selectAll;
         });
     };
+
+    $scope.doSearch = function () {
+        $scope.tableParams.reload();
+    };
     $scope.submitMessage = function() {
         var recipients = [];
         angular.forEach($scope.users, function(user) {
@@ -42,12 +57,12 @@ app.controller('usersController', function($scope, ngTableParams, $http,$filter)
         $scope.showSuccessAlert = false;
         $scope.showErrorAlert = false;
         if ($scope.message_title == undefined || $scope.message_title.length == 0) {
-            $scope.errorMessage = 'Please enter title';
+            $scope.errorMessage = 'Пожалуйста, заполните тему';
             $scope.showErrorAlert = true;
             return;
         }
         if ($scope.message_text == undefined || $scope.message_text.length == 0) {
-            $scope.errorMessage = 'Please enter message';
+            $scope.errorMessage = 'Пожалуйста, заполните текст сообщение';
             $scope.showErrorAlert = true;
             return;
         }
@@ -69,10 +84,10 @@ app.controller('usersController', function($scope, ngTableParams, $http,$filter)
                 // called asynchronously if an error occurs
                 // or server returns response with an error status.
             });
-            $scope.successTextAlert = "Message sent";
+            $scope.successTextAlert = "Сообщение послано";
             $scope.showSuccessAlert = true;
         } else {
-            $scope.errorMessage = 'Please select recipient';
+            $scope.errorMessage = 'Пожалуйста, выберите получателя';
             $scope.showErrorAlert = true;
         }
     };
@@ -80,5 +95,5 @@ app.controller('usersController', function($scope, ngTableParams, $http,$filter)
 });
 
 app.controller('rolesController', function($scope) {
-    $scope.headingTitle = "Roles List";
+    $scope.headingTitle = "Список ролей";
 });

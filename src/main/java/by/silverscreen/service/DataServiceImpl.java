@@ -1,6 +1,5 @@
 package by.silverscreen.service;
 
-import by.silverscreen.DAO.DataRepository;
 import by.silverscreen.DAO.JooqRepository;
 import by.silverscreen.DAO.PhoneDAO;
 import by.silverscreen.Entities.PushEntity;
@@ -12,7 +11,6 @@ import static by.silverscreen.jooq.tables.Phone.PHONE;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -30,10 +28,6 @@ class DataServiceImpl implements DataService {
     private static final Logger LOG = LoggerFactory.getLogger(DataServiceImpl.class);
 
     @Autowired
-    @Qualifier("dataRespitory")
-    private DataRepository dataRepository;
-
-    @Autowired
     private Pusher pusher;
 
     @Autowired
@@ -46,27 +40,14 @@ class DataServiceImpl implements DataService {
     @Override
     public boolean persist(TokenEntity tokenEntity) {
         try {
-            if (tokenEntity.getLogin() != null && tokenEntity.getLogin().length() > 0) {
-                TokenEntity existingTokenEntity = checkName(tokenEntity.getLogin());
-                PhoneDAO phoneDAO = new PhoneDAO(tokenEntity);
-                if (existingTokenEntity != null && (!existingTokenEntity.getToken().equals(tokenEntity.getToken()) ||
-                        !existingTokenEntity.getPassword().equals(tokenEntity.getPassword()))) {
-                    jooqRepository.updatePhoneByLogin(phoneDAO);
-                } else if (existingTokenEntity == null && checkToken(tokenEntity.getToken()) != null){
-                    jooqRepository.updatePhoneByToken(phoneDAO);
-                } else if (existingTokenEntity == null)  {
-                    jooqRepository.persist(phoneDAO);
-                }
-            } else {
-                tokenEntity.setUser("Anonymous");
-                if (checkToken(tokenEntity.getToken()) == null) {
-                    PhoneDAO phoneDAO = new PhoneDAO(tokenEntity);
-                    jooqRepository.persist(phoneDAO);
+            PhoneDAO phoneDAO = new PhoneDAO(tokenEntity);
+                if (tokenEntity.getLogin() != null && tokenEntity.getLogin().length() > 0) {
+                    jooqRepository.deleteByLogin(phoneDAO.getLogin());
                 } else {
-                    PhoneDAO phoneDAO = new PhoneDAO(tokenEntity);
-                    jooqRepository.updatePhoneByToken(phoneDAO);
+                    setAnonymous(phoneDAO);
                 }
-            }
+            jooqRepository.deleteByToken(phoneDAO.getToken());
+            jooqRepository.persist(phoneDAO);
             return true;
         } catch (Exception e) {
             LOG.error("ERROR SAVING DATA: " + e.getMessage(), e);
@@ -136,9 +117,6 @@ class DataServiceImpl implements DataService {
 
     private TokenEntity getTokenEntity(Record record) {
         TokenEntity tokenEntity = new TokenEntity();
-        if (record.getValue(PHONE.LOGIN) != null) {
-            tokenEntity.setLogin(String.valueOf(record.getValue(PHONE.LOGIN)));
-        }
         if (record.field(PHONE.PASSWORD) != null) {
             tokenEntity.setPassword((record.getValue(PHONE.PASSWORD)));
         }
@@ -151,8 +129,15 @@ class DataServiceImpl implements DataService {
         if (record.field(PHONE.TOKEN) != null) {
             tokenEntity.setToken((record.getValue(PHONE.TOKEN)));
         }
-        if (record.field(PHONE.ISMAN) != null) {
-            tokenEntity.setIsman((record.getValue(PHONE.ISMAN).intValue()));
+        if (record.getValue(PHONE.LOGIN) != null) {
+            tokenEntity.setLogin(String.valueOf(record.getValue(PHONE.LOGIN)));
+        }
+        if (tokenEntity.getLogin().length() == 0) {
+            tokenEntity.setIsman(0);
+        } else {
+            if (record.field(PHONE.ISMAN) != null) {
+                tokenEntity.setIsman((record.getValue(PHONE.ISMAN).intValue()));
+            }
         }
         if (record.field(PHONE.DATE) != null) {
             tokenEntity.setDate((record.getValue(PHONE.DATE)));
@@ -169,4 +154,15 @@ class DataServiceImpl implements DataService {
         }
         return getTokenEntity(record);
     };
+
+    private void setAnonymous (PhoneDAO phoneDAO) {
+        if (phoneDAO.getLogin() == null || phoneDAO.getLogin().length() == 0) {
+            phoneDAO.setUser("Anonymous");
+            phoneDAO.setPassword("-");
+            phoneDAO.setLogin("");
+            phoneDAO.setIsman("0");
+            phoneDAO.setDateOfBirth("0");
+        }
+    }
+
 }

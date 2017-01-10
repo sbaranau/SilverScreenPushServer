@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,6 +45,7 @@ public class PhoneRegistrator {
             throw new RestException(e);
         }
     }
+    @Secured({"ADMIN","USER"})
     @CrossOrigin
     @RequestMapping(value = "/tokens", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     public @ResponseBody
@@ -58,6 +60,7 @@ public class PhoneRegistrator {
             throw new RestException(e);
         }
     }
+    @Secured("ADMIN")
     @CrossOrigin
     @RequestMapping(value = "/send", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE})
     public @ResponseBody
