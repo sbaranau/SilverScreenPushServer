@@ -70,13 +70,10 @@ public class Task {
         LOG.info(startDate.toString());
         Set<NotificationEntity> notificationEntities = dataService.getAllNotificationsByTime(startDate, startDate.plusDays(1));
         Map<String, String> tokenToSend = new HashMap<>();
-        Map<String, String> tokenToSend2 = new HashMap<>();
         notificationEntities.stream().forEach(notificationEntity -> {
-            tokenToSend2.merge(dataService.checkName(notificationEntity.getLogin()).getToken(), notificationEntity.getTickets(), (value, newValue) -> value.concat("; " + newValue));
-            tokenToSend.compute(dataService.checkName(notificationEntity.getLogin()).getToken(), (key, val) -> val == null?notificationEntity.getTickets():val + "; " + notificationEntity.getTickets());
+            tokenToSend.merge(dataService.checkName(notificationEntity.getLogin()).getToken(), notificationEntity.getTickets(), (value, newValue) -> value.concat("; " + newValue));
         });
         LOG.info(tokenToSend.toString());
-        LOG.info(tokenToSend2.toString());
 
     }
 }
