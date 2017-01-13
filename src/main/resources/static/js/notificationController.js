@@ -1,15 +1,15 @@
 /**
  * Created by sbaranau on 11/28/2016.
  */
-app.controller('usersController', function($scope, ngTableParams, $http,$filter) {
-    $scope.headingTitle = "Пользователи";
+app.controller('notificationsController', function($scope, ngTableParams, $http,$filter) {
+    $scope.headingTitle = "Пользователи с билетами на сегодня";
     $scope.systems = [{id: "", title: ""}, {id: 'ios', title: 'ios'}, {id: 'Android', title: 'Android'}];
     $scope.gender = [{id: "", title: ""}, {id: 'мужской', title: 'мужской'}, {id: 'женский', title: 'женский'}, {id: 'скрыт', title: 'скрыт'}];
-    $http.get(serverUrl + 'tokens')
+    $http.get(serverUrl + 'notifications')
         .then(
             function(response){
-                var users = response.data.data;
-                angular.forEach(users, function(user) {
+                $scope.users = response.data.data;
+                /*angular.forEach($scope.users, function(user) {
                     if (user.login == "" || user.isman == 0) {
                         user.isman = 'скрыт'
                     } else if (user.isman == 1) {
@@ -17,14 +17,14 @@ app.controller('usersController', function($scope, ngTableParams, $http,$filter)
                     } else {
                         user.isman = 'женский'
                     }
-                });
+                });*/
                 $scope.tableParams = new ngTableParams({
                     page: 1,
                     count: 10
                 }, {
-                    total: users.length, // length of data
+                    total: $scope.users.length, // length of data
                     getData: function($defer, params) {
-                        $scope.data = params.sorting() ? $filter('orderBy')(users, params.orderBy()) : users;
+                        $scope.data = params.sorting() ? $filter('orderBy')($scope.users, params.orderBy()) : $scope.users;
                         $scope.data = params.filter() ? $filter('filter')($scope.data, params.filter()) : $scope.data;
                         params.total($scope.data.length);
                         $scope.data = $scope.data.slice((params.page() - 1) * params.count(), params.page() * params.count());
@@ -46,7 +46,7 @@ app.controller('usersController', function($scope, ngTableParams, $http,$filter)
 
     $scope.submitMessage = function() {
         var recipients = [];
-        angular.forEach($scope.data, function(user) {
+        angular.forEach($scope.users, function(user) {
             if (user.select) {
                 recipients.push(user.token);
             }

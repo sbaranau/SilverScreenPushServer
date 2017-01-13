@@ -19,16 +19,33 @@
 	</parent>
 	<profiles>
 		<profile>
-			<id>sample-profile</id>
+			<id>10.0.1.2_postgre</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<properties>
-				<jdbc.driver>org.postgresql.Driver</jdbc.driver>
-				<jdbc.user>postgres</jdbc.user>
 				<jdbc.password>root</jdbc.password>
 				<jdbc.url>jdbc:postgresql://10.0.1.2:5432/silverscreen</jdbc.url>
 				<jdbc.database.name>public.silverscreen</jdbc.database.name>
+				<jdbc.driver>org.postgresql.Driver</jdbc.driver>
+				<jdbc.user>postgres</jdbc.user>
+				<getticket.cron>0 1 1 * * ?</getticket.cron>
+				<logger.level>ERROR</logger.level>
+			</properties>
+		</profile>
+		<profile>
+			<id>10.0.1.2_postgre_debug</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<jdbc.password>root</jdbc.password>
+				<jdbc.url>jdbc:postgresql://10.0.1.2:5432/silverscreen</jdbc.url>
+				<jdbc.database.name>public.silverscreen</jdbc.database.name>
+				<jdbc.driver>org.postgresql.Driver</jdbc.driver>
+				<jdbc.user>postgres</jdbc.user>
+				<getTicket.cron><![CDATA[0 0/10 * * * ?]]></getTicket.cron>
+				<logger.level>DEBUG</logger.level>
 			</properties>
 		</profile>
 	</profiles>
@@ -38,8 +55,6 @@
 		<java.version>1.8</java.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<maven.compiler.testTarget>1.8</maven.compiler.testTarget>
-		<maven.compiler.testSource>1.8</maven.compiler.testSource>
 		<jooq.version>3.9.0</jooq.version>
 	</properties>
 
@@ -88,6 +103,12 @@
 			<groupId>org.jooq</groupId>
 			<artifactId>jooq-meta</artifactId>
 			<version>${jooq.version}</version>
+		</dependency>
+		<dependency>
+			<!-- jsoup HTML parser library @ http://jsoup.org/ -->
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>1.10.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -165,17 +186,6 @@
 							</compilerArguments>
 						</configuration>
 					</execution>
-					<execution>
-						<id>default-testCompile</id>
-						<configuration>
-							<showDeprecation>true</showDeprecation>
-							<showWarnings>true</showWarnings>
-							<compilerArguments>
-								<source>${maven.compiler.testTarget}</source>
-								<target>${maven.compiler.testSource}</target>
-							</compilerArguments>
-						</configuration>
-					</execution>
 				</executions>
 			</plugin>
 
@@ -240,7 +250,7 @@
 					</configuration>
 				</execution>
 			</executions>-->
-		</plugin>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>

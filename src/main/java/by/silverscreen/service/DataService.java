@@ -1,8 +1,11 @@
 package by.silverscreen.service;
 
+import by.silverscreen.Entities.NotificationEntity;
 import by.silverscreen.Entities.PushEntity;
+import by.silverscreen.Entities.TicketEntity;
 import by.silverscreen.Entities.TokenEntity;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 
 /**
@@ -20,4 +23,15 @@ public interface DataService {
 
     boolean sendPush(PushEntity pushEntity);
 
+    Set<NotificationEntity> getNotificationForLogin(TokenEntity token);
+
+    String checkFilms(TokenEntity tokenEntity, Set<NotificationEntity> notificationEntities);
+
+    void addTicketByLogin(TicketEntity notification, String login);
+
+    void clearNotifications();
+
+    Set<NotificationEntity> getAllNotifications();
+
+    Set<NotificationEntity> getAllNotificationsByTime(LocalDateTime start, LocalDateTime finish);
 }

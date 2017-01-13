@@ -6,8 +6,8 @@ app.config(function($routeProvider){
             controller: 'usersController'
         })
         .when('/roles',{
-            templateUrl: 'views/roles.html',
-            controller: 'rolesController'
+            templateUrl: 'views/notifications.html',
+            controller: 'notificationsController'
         })
         .otherwise(
             { redirectTo: '/'}

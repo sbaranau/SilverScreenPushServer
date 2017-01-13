@@ -1,8 +1,10 @@
 package by.silverscreen.DAO;
 
 import static by.silverscreen.jooq.tables.Phone.PHONE;
+import static by.silverscreen.jooq.tables.Notifications.NOTIFICATIONS;
 
-import by.silverscreen.jooq.tables.records.PhoneRecord;
+import by.silverscreen.Entities.NotificationEntity;
+import by.silverscreen.Entities.TicketEntity;
 import org.jooq.DSLContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +13,7 @@ import org.jooq.Record;
 import org.jooq.Result;
 
 import java.util.Date;
+import java.util.UUID;
 
 
 /**
@@ -22,7 +25,7 @@ public class JooqRepository {
     private DSLContext dsl;
 
 
-    public Result<Record> getAll(){
+    public Result<Record> getAllUsers(){
         return  dsl.select().from(PHONE).orderBy(PHONE.DATE.desc()).fetch();
     }
 
@@ -55,6 +58,7 @@ public class JooqRepository {
                 .set(PHONE.SYSTEM, object.getSystem())
         .execute();
     }
+
     @Transactional
     public void updatePhoneByLogin(PhoneDAO phoneDAO) {
         dsl.update(PHONE)
@@ -82,5 +86,39 @@ public class JooqRepository {
                 .set(PHONE.ISMAN, (long) phoneDAO.getIsman())
                 .set(PHONE.SYSTEM, phoneDAO.getSystem()).where(PHONE.TOKEN.like(phoneDAO.getToken()))
                 .execute();
+    }
+
+    @Transactional
+    public Result<Record> getNotificationsForUser(String login) {
+        return dsl.select().from(NOTIFICATIONS).where(NOTIFICATIONS.LOGIN.like(login)).fetch();
+    }
+
+    @Transactional
+    public void persistTicketNotification(String login, TicketEntity ticket) {
+        dsl.insertInto(NOTIFICATIONS)
+                .set(NOTIFICATIONS.ID, UUID.randomUUID().toString())
+                .set(NOTIFICATIONS.LOGIN, login)
+                .set(NOTIFICATIONS.TIKETS, ticket.getName())
+                .set(NOTIFICATIONS.TIME, ticket.getTime())
+                .set(NOTIFICATIONS.STARTNOTIF, 0L)
+                .set(NOTIFICATIONS.ENDNOTIF, 0L)
+                .set(NOTIFICATIONS.WANTRECIEVE, true)
+                .execute();
+    }
+
+    @Transactional
+    public void clearNotifications() {
+        dsl.deleteFrom(NOTIFICATIONS).execute();
+    }
+
+    @Transactional
+    public Result<Record> getAllNotification() {
+        return  dsl.select().from(NOTIFICATIONS).fetch();
+    }
+
+    @Transactional
+    public Result<Record> getAllNotificationByTime(long start, long finish) {
+        return  dsl.select().from(NOTIFICATIONS).
+                where(NOTIFICATIONS.TIME.between(start, finish)).fetch();
     }
 }

@@ -1,0 +1,26 @@
+
+<div class="section">
+    <div class="alert alert-success" ng-show="showSuccessAlert">
+        <strong>Done! </strong> {{successTextAlert}}
+    </div>
+    <div class="alert alert-danger" ng-show="showErrorAlert">
+        <strong>Error! </strong> {{errorMessage}}
+    </div>
+    <h4>{{headingTitle}}</h4>
+    <div class="col-md-12">
+        <!--  <button ng-click="doSearch()" class="btn btn-default">Обновить таблицу</button>-->
+        <table ng-table="tableParams" class="table table-bordered table-striped" show-filter="true">
+            <tr ng-repeat="user in data">
+                <td width="60" style="text-align: left" header="'ng-table/headers/checkbox.html'" >
+                    <input type="checkbox" style="text-align: center" ng-click="usersetting(user)" ng-model="user.select" class="center-block">
+                </td>
+                <td data-title="'Логин'" filter="{ 'login': 'text'}" sortable="'login'">{{user.login}}</td>
+                <td data-title="'Фильм'" filter="{ 'film': 'text'}" sortable="'user'">{{user.film}}</td>
+                <td data-title="'Время'" filter="{ 'time': 'text'}" sortable="'time'">{{user.time}}</td>
+                <td data-title="'Дневное оповещение'" filter="{ 'morningReminder': 'text'}" sortable="'morningReminder'">{{user.morningReminder}}</td>
+                <td data-title="'Напоминалка'" filter="{ 'reminder': 'text'}" sortable="'reminder'">{{user.reminder}}</td>
+                <td data-title="'Разрешение'" filter="{ 'wantToReceive': 'text'}" sortable="'wantToReceive'">{{user.wantToReceive}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
