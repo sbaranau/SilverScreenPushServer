@@ -4,6 +4,7 @@ package by.silverscreen.service;
  * Created by sbaranau on 1/11/2017.
  */
 import by.silverscreen.Entities.NotificationEntity;
+import by.silverscreen.Entities.PushEntity;
 import by.silverscreen.Entities.TicketEntity;
 import by.silverscreen.Entities.TokenEntity;
 import org.slf4j.Logger;
@@ -13,9 +14,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Predicate;
 
 @Component
@@ -41,8 +40,11 @@ public class Task {
    @Scheduled(cron  = "${scheduledPush.delay}")
     public void runSendPushTodayTikets() {
         try {
-            LOG.info("send push started");
-            configurePush();
+            LOG.info("send morning push started");
+            LocalDateTime startDate = LocalDateTime.now();
+            startDate = startDate.minusMinutes(startDate.getMinute()).minusHours(startDate.getHour());
+            LOG.info(startDate.toString());
+            configurePush(startDate, startDate.plusDays(1), "Не забудь! Уже сегодня");
             LOG.info("send push end");
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -64,16 +66,26 @@ public class Task {
         });
     }
 
-    private void configurePush() {
-        LocalDateTime startDate = LocalDateTime.now();
-        startDate = startDate.minusMinutes(startDate.getMinute()).minusHours(startDate.getHour());
-        LOG.info(startDate.toString());
-        Set<NotificationEntity> notificationEntities = dataService.getAllNotificationsByTime(startDate, startDate.plusDays(1));
-        Map<String, String> tokenToSend = new HashMap<>();
+    private void configurePush(LocalDateTime startDate, LocalDateTime finishDate, String text) {
+
+        Set<NotificationEntity> notificationEntities = dataService.getAllNotificationsByTime(startDate, finishDate);
+        Map<TokenEntity, String> tokenToSend = new HashMap<>();
         notificationEntities.stream().forEach(notificationEntity -> {
-            tokenToSend.merge(dataService.checkName(notificationEntity.getLogin()).getToken(), notificationEntity.getTickets(), (value, newValue) -> value.concat("; " + newValue));
+            tokenToSend.merge(dataService.checkName(notificationEntity.getLogin()), notificationEntity.getTickets(), (value, newValue) -> value.concat("; " + newValue));
         });
-        LOG.info(tokenToSend.toString());
+        tokenToSend.forEach((tokenEntity, films) -> {
+            PushEntity push = new PushEntity();
+            push.setMessage(films);
+            push.setTitle(text);
+            if (tokenEntity.getSystem().contains("ios")) {
+                LOG.info(String.format("ios:%s Title:%s,message:%s", tokenEntity.getToken(), text, films));
+               //TODO dataService.sendPushToIos(push, Collections.singletonList(tokenEntity.getToken()));
+            } else {
+                LOG.info(String.format("android:%s Title:%s,message:%s", tokenEntity.getToken(), text, films));
+               //TODO dataService.sendPushToAndroid(push, Collections.singletonList(tokenEntity.getToken()));
+            }
+            dataService.updateMorningInNotification(tokenEntity);
+        });
 
     }
 }

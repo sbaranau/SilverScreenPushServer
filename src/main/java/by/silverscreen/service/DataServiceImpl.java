@@ -26,7 +26,6 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
@@ -131,15 +130,23 @@ class DataServiceImpl implements DataService {
         List<String> iosTokens = getPhoneDAO.apply(pushEntity.getTokens(), "ios");
         List<String> andTokens = getPhoneDAO.apply(pushEntity.getTokens(), "android");
         if (andTokens.size() > 0) {
-            andPush.setTokens(andTokens);
-            pusher.sendAndr(andPush);
+            sendPushToAndroid(andPush, andTokens);
         }
         if (iosTokens.size() > 0) {
-            iosPush.setTokens(iosTokens);
-            pusher.sendIos(iosPush);
+            sendPushToIos(iosPush, iosTokens);
         }
         // pusher.send(pushEntity);
         return true;
+    }
+
+    public void sendPushToIos(PushEntity iosPush, List<String> iosTokens) {
+        iosPush.setTokens(iosTokens);
+        pusher.sendIos(iosPush);
+    }
+
+    public void sendPushToAndroid(PushEntity andPush, List<String> andTokens) {
+        andPush.setTokens(andTokens);
+        pusher.sendAndr(andPush);
     }
 
     private Function<Result<Record>, Set<TokenEntity>> convertRecords = result -> {
@@ -212,6 +219,15 @@ class DataServiceImpl implements DataService {
         }
         if (record.getValue(NOTIFICATIONS.WANTRECIEVE) != null) {
             notificationEntity.setWantReceive((record.getValue(NOTIFICATIONS.WANTRECIEVE)));
+        }
+        if (record.getValue(NOTIFICATIONS.TIME) != null) {
+            notificationEntity.setTime((record.getValue(NOTIFICATIONS.TIME)));
+        }
+        if (record.getValue(NOTIFICATIONS.MORNINGSEND) != null) {
+            notificationEntity.setMorningSend((record.getValue(NOTIFICATIONS.MORNINGSEND)));
+        }
+        if (record.getValue(NOTIFICATIONS.FILMREMINDER) != null) {
+            notificationEntity.setReminder((record.getValue(NOTIFICATIONS.FILMREMINDER)));
         }
         return notificationEntity;
     }
@@ -405,6 +421,7 @@ class DataServiceImpl implements DataService {
                 try {
                     row.getElementsByTag("td").stream().filter(cell -> cell.getElementsByClass("btn").size() == 0 && cell.getAllElements().size() > 1).forEach(getFilm::accept);
                 } catch (Exception ex) {
+                    LOG.error(ex.getLocalizedMessage());
                     ex.printStackTrace();
                 }
             });
@@ -432,5 +449,10 @@ class DataServiceImpl implements DataService {
     public Set<NotificationEntity> getAllNotificationsByTime(LocalDateTime start, LocalDateTime finish) {
         Result<Record> resultJooq = jooqRepository.getAllNotificationByTime(start.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli(), finish.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli());
         return convertNotificationRecords.apply(resultJooq);
+    }
+
+    @Override
+    public int updateMorningInNotification(TokenEntity tokenEntity) {
+        return jooqRepository.updateMorningInNotification(new PhoneDAO(tokenEntity));
     }
 }

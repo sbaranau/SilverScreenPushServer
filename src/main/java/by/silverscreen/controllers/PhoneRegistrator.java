@@ -1,5 +1,6 @@
 package by.silverscreen.controllers;
 
+import by.silverscreen.Entities.NotificationEntity;
 import by.silverscreen.Entities.PushEntity;
 import by.silverscreen.Entities.TokenEntity;
 import by.silverscreen.Utils.Ajax;
@@ -38,28 +39,27 @@ public class PhoneRegistrator {
                 return Ajax.emptyResponse();
             } else {
                 dataService.persist(data);
-                //TODO working code pusher.send(data.getToken());
             }
             return Ajax.emptyResponse();
         } catch (Exception e) {
             throw new RestException(e);
         }
     }
+
     @Secured({"ADMIN","USER"})
     @CrossOrigin
     @RequestMapping(value = "/tokens", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     public @ResponseBody
     Map<String, Object> getAllToken () throws RestException {
         try {
-
             Set<TokenEntity> tokens = dataService.getAllTokens();
             LOG.trace("get all tokens");
-
             return Ajax.successResponse(tokens);
         } catch (Exception e) {
             throw new RestException(e);
         }
     }
+
     @Secured("ADMIN")
     @CrossOrigin
     @RequestMapping(value = "/send", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE})
@@ -73,6 +73,20 @@ public class PhoneRegistrator {
                 dataService.sendPush(data);
             }
             return Ajax.emptyResponse();
+        } catch (Exception e) {
+            throw new RestException(e);
+        }
+    }
+
+    @Secured({"ADMIN","USER"})
+    @CrossOrigin
+    @RequestMapping(value = "/notifications", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public @ResponseBody
+    Map<String, Object> getAllNotifications () throws RestException {
+        try {
+            Set<NotificationEntity> tokens = dataService.getAllNotifications();
+            LOG.trace("get all notifications");
+            return Ajax.successResponse(tokens);
         } catch (Exception e) {
             throw new RestException(e);
         }

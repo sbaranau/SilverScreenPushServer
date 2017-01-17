@@ -34,4 +34,6 @@ public interface DataService {
     Set<NotificationEntity> getAllNotifications();
 
     Set<NotificationEntity> getAllNotificationsByTime(LocalDateTime start, LocalDateTime finish);
+
+    int updateMorningInNotification(TokenEntity tokenEntity);
 }

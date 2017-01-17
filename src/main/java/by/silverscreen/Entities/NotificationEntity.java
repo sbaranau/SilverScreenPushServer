@@ -14,24 +14,11 @@ public class NotificationEntity implements Serializable{
     Long startNotification = 0L;
     Long endNotification = 0L;
     String tickets = "";
+    long time = 0L;
+    boolean morningSend = false;
     boolean wantReceive = true;
+    boolean reminder = true;
 
-    public NotificationEntity(String login, Set<String> film, Long startNotification, Long endNotification, String tickets) {
-        this.login = login;
-        this.film = film;
-        this.startNotification = startNotification;
-        this.endNotification = endNotification;
-        this.tickets = tickets;
-    }
-
-    public NotificationEntity(String login, Set<String> film, Long startNotification, Long endNotification, String tickets, boolean wantReceive) {
-        this.login = login;
-        this.film = film;
-        this.startNotification = startNotification;
-        this.endNotification = endNotification;
-        this.tickets = tickets;
-        this.wantReceive = wantReceive;
-    }
 
     public NotificationEntity() {
     }
@@ -93,5 +80,29 @@ public class NotificationEntity implements Serializable{
 
     public void setWantReceive(boolean wantReceive) {
         this.wantReceive = wantReceive;
+    }
+
+    public long getTime() {
+        return time;
+    }
+
+    public void setTime(long time) {
+        this.time = time;
+    }
+
+    public boolean isMorningSend() {
+        return morningSend;
+    }
+
+    public void setMorningSend(boolean morningSend) {
+        this.morningSend = morningSend;
+    }
+
+    public boolean isReminder() {
+        return reminder;
+    }
+
+    public void setReminder(boolean reminder) {
+        this.reminder = reminder;
     }
 }

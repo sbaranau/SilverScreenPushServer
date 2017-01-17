@@ -29,7 +29,6 @@
 				<jdbc.database.name>public.silverscreen</jdbc.database.name>
 				<jdbc.driver>org.postgresql.Driver</jdbc.driver>
 				<jdbc.user>postgres</jdbc.user>
-				<getticket.cron>0 1 1 * * ?</getticket.cron>
 				<logger.level>ERROR</logger.level>
 			</properties>
 		</profile>
@@ -44,7 +43,6 @@
 				<jdbc.database.name>public.silverscreen</jdbc.database.name>
 				<jdbc.driver>org.postgresql.Driver</jdbc.driver>
 				<jdbc.user>postgres</jdbc.user>
-				<getTicket.cron><![CDATA[0 0/10 * * * ?]]></getTicket.cron>
 				<logger.level>DEBUG</logger.level>
 			</properties>
 		</profile>

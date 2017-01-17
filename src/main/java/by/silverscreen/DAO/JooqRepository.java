@@ -102,6 +102,8 @@ public class JooqRepository {
                 .set(NOTIFICATIONS.TIME, ticket.getTime())
                 .set(NOTIFICATIONS.STARTNOTIF, 0L)
                 .set(NOTIFICATIONS.ENDNOTIF, 0L)
+                .set(NOTIFICATIONS.MORNINGSEND, false)
+                .set(NOTIFICATIONS.FILMREMINDER, false)
                 .set(NOTIFICATIONS.WANTRECIEVE, true)
                 .execute();
     }
@@ -120,5 +122,13 @@ public class JooqRepository {
     public Result<Record> getAllNotificationByTime(long start, long finish) {
         return  dsl.select().from(NOTIFICATIONS).
                 where(NOTIFICATIONS.TIME.between(start, finish)).fetch();
+    }
+
+    @Transactional
+    public int  updateMorningInNotification(PhoneDAO phoneDAO) {
+        return dsl.update(NOTIFICATIONS)
+                .set(NOTIFICATIONS.MORNINGSEND, true)
+                .where(NOTIFICATIONS.LOGIN.like(phoneDAO.getLogin()))
+                .execute();
     }
 }

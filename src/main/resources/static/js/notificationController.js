@@ -3,9 +3,7 @@
  */
 app.controller('notificationsController', function($scope, ngTableParams, $http,$filter) {
     $scope.headingTitle = "Пользователи с билетами на сегодня";
-    $scope.systems = [{id: "", title: ""}, {id: 'ios', title: 'ios'}, {id: 'Android', title: 'Android'}];
-    $scope.gender = [{id: "", title: ""}, {id: 'мужской', title: 'мужской'}, {id: 'женский', title: 'женский'}, {id: 'скрыт', title: 'скрыт'}];
-    $http.get(serverUrl + 'notifications')
+    $scope.booleanSend = [{id: "", title: ""}, {id: true, title: 'отправлено'}, {id: false, title: 'не отправлено'}];    $http.get(serverUrl + 'notifications')
         .then(
             function(response){
                 $scope.users = response.data.data;
