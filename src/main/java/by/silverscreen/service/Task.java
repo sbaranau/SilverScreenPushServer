@@ -25,7 +25,7 @@ public class Task {
 
     private static final Logger LOG = LoggerFactory.getLogger(Task.class);
 
-    @Scheduled(cron  = "${scheduled.delay}")
+    @Scheduled(cron  = "${scheduled.checkTodayTicketTime}")
     public void runCheckTodayTikets() {
         try {
             LOG.info("check ticket started");
@@ -37,7 +37,7 @@ public class Task {
     }
 
 
-   @Scheduled(cron  = "${scheduledPush.delay}")
+   @Scheduled(cron  = "${scheduledPush.morningSendTime}")
     public void runSendPushTodayTikets() {
         try {
             LOG.info("send morning push started");
@@ -70,13 +70,11 @@ public class Task {
 
         Set<NotificationEntity> notificationEntities = dataService.getAllNotificationsByTime(startDate, finishDate);
         Map<TokenEntity, String> tokenToSend = new HashMap<>();
-        notificationEntities.stream().forEach(notificationEntity -> {
+        notificationEntities.stream().filter(s -> !s.isMorningSend()).forEach(notificationEntity -> {
             tokenToSend.merge(dataService.checkName(notificationEntity.getLogin()), notificationEntity.getTickets(), (value, newValue) -> value.concat("; " + newValue));
         });
         tokenToSend.forEach((tokenEntity, films) -> {
-            PushEntity push = new PushEntity();
-            push.setMessage(films);
-            push.setTitle(text);
+            PushEntity push = new PushEntity(text, films);
             if (tokenEntity.getSystem().contains("ios")) {
                 LOG.info(String.format("ios:%s Title:%s,message:%s", tokenEntity.getToken(), text, films));
                //TODO dataService.sendPushToIos(push, Collections.singletonList(tokenEntity.getToken()));
@@ -86,6 +84,5 @@ public class Task {
             }
             dataService.updateMorningInNotification(tokenEntity);
         });
-
     }
 }

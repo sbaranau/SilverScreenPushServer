@@ -120,10 +120,8 @@ class DataServiceImpl implements DataService {
         if (pushEntity.getTokens().size() == 0) {
             return false;
         }
-        PushEntity andPush = new PushEntity();
-        andPush.setMessage(pushEntity.getMessage());
-        andPush.setTitle(pushEntity.getTitle());
-        PushEntity iosPush = new PushEntity();
+        PushEntity andPush = new PushEntity(pushEntity.getTitle(), pushEntity.getMessage());
+        PushEntity iosPush = new PushEntity(pushEntity.getTitle(), pushEntity.getMessage());
         iosPush.setMessage(pushEntity.getMessage());
         iosPush.setTitle(pushEntity.getTitle());
 

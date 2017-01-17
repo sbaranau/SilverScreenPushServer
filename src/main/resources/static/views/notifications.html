@@ -17,7 +17,7 @@
                 <td data-title="'Логин'" filter="{ 'login': 'text'}" sortable="'login'">{{user.login}}</td>
                 <td data-title="'Фильм'" filter="{ 'tickets': 'text'}" sortable="'tickets'">{{user.tickets}}</td>
                 <td data-title="'Время'" filter="{ 'time': 'text'}" sortable="'time'">{{user.time  | date:'dd-MM-yyyy HH:mm:ss'}}</td>
-                <td data-title="'Дневное оповещение'" filter="{ 'morningSend': 'select'}" sortable="'morningSend'" filter-data="booleanSend">{{user.morningSend?"Отправлено":"Не отправлено"}}</td>
+                <td data-title="'Утреннее оповещение'" filter="{ 'morningSend': 'select'}" sortable="'morningSend'" filter-data="booleanSend">{{user.morningSend?"Отправлено":"Не отправлено"}}</td>
                 <td data-title="'Напоминалка'" filter="{ 'reminder': 'select'}" sortable="'reminder'" filter-data="booleanSend">{{user.reminder?"Отправлено":"Не отправлено"}}</td>
                 <td data-title="'Разрешение'" filter="{ 'wantReceive': 'select'}" filter-data="booleanSend" sortable="'wantReceive'">{{user.wantReceive?"Разрешено":"Запрещено"}}</td>
             </tr>
