@@ -1,0 +1,945 @@
+"2017-01-12 15:41:01 [main] INFO  b.silverscreen.PushserverApplication - Starting PushserverApplication on Gersis-PC with PID 1436 (C:\Users\sbaranau\IdeaProjects\pushserver\target\classes started by sbaranau in C:\Users\sbaranau\IdeaProjects\pushserver)
+""2017-01-12 15:41:01 [main] DEBUG b.silverscreen.PushserverApplication - Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+""2017-01-12 15:41:01 [main] INFO  b.silverscreen.PushserverApplication - No active profile set, falling back to default profiles: default
+""2017-01-12 15:41:01 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2f3c8df2: startup date [Thu Jan 12 15:41:01 MSK 2017]; root of context hierarchy
+""2017-01-12 15:41:03 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$33833b31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2017-01-12 15:41:04 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+""2017-01-12 15:41:04 [main] INFO  o.a.catalina.core.StandardService - Starting service Tomcat
+""2017-01-12 15:41:04 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.6
+""2017-01-12 15:41:04 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/pushserver] - Initializing Spring embedded WebApplicationContext
+""2017-01-12 15:41:04 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'metricsFilter' to: [/*]
+""2017-01-12 15:41:04 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+""2017-01-12 15:41:04 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+""2017-01-12 15:41:04 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+""2017-01-12 15:41:04 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+""2017-01-12 15:41:04 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+""2017-01-12 15:41:04 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webRequestLoggingFilter' to: [/*]
+""2017-01-12 15:41:04 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'applicationContextIdFilter' to: [/*]
+""2017-01-12 15:41:04 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+""2017-01-12 15:41:04 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Started.
+""2017-01-12 15:41:04 [main] INFO  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Driver does not support get/set network timeout for connections. (Method org.postgresql.jdbc42.Jdbc42Connection.getNetworkTimeout() is not yet implemented.)
+""2017-01-12 15:41:05 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+""2017-01-12 15:41:05 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+""2017-01-12 15:41:05 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.11.Final}
+""2017-01-12 15:41:05 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+""2017-01-12 15:41:05 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+""2017-01-12 15:41:05 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+""2017-01-12 15:41:05 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL94Dialect
+""2017-01-12 15:41:06 [main] INFO  o.h.e.j.e.i.LobCreatorBuilderImpl - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+""2017-01-12 15:41:06 [main] INFO  org.hibernate.type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@4e8bbf03
+""2017-01-12 15:41:06 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2017-01-12 15:41:07 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/css/**'], Ant [pattern='/js/**'], Ant [pattern='/images/**'], Ant [pattern='/webjars/**'], Ant [pattern='/**/favicon.ico'], Ant [pattern='/error']]], []
+""2017-01-12 15:41:07 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@101145d6, org.springframework.security.web.context.SecurityContextPersistenceFilter@34735f02, org.springframework.security.web.header.HeaderWriterFilter@569f8fb8, org.springframework.security.web.authentication.logout.LogoutFilter@cd43688, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3da26d9e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@38e0d26b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@22f2208b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2349b2aa, org.springframework.security.web.session.SessionManagementFilter@35b6f5f4, org.springframework.security.web.access.ExceptionTranslationFilter@3cfa329d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3715a5b2]
+""2017-01-12 15:41:07 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.boot.actuate.autoconfigure.ManagementWebSecurityAutoConfiguration$LazyEndpointPathRequestMatcher@190133d7, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5edf8ccf, org.springframework.security.web.context.SecurityContextPersistenceFilter@1080f60c, org.springframework.security.web.header.HeaderWriterFilter@550fbd3e, org.springframework.security.web.authentication.logout.LogoutFilter@3c4ad688, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2eb8d320, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3bc701ac, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1389ada7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@c802992, org.springframework.security.web.session.SessionManagementFilter@1986dd5b, org.springframework.security.web.access.ExceptionTranslationFilter@5e5d129, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@52d00ba5]
+""2017-01-12 15:41:08 [main] INFO  o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+""2017-01-12 15:41:08 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/info || /info.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 15:41:08 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/configprops || /configprops.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 15:41:08 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/metrics/{name:.*}],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)
+""2017-01-12 15:41:08 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/metrics || /metrics.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 15:41:08 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/health || /health.json],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(java.security.Principal)
+""2017-01-12 15:41:08 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/shutdown || /shutdown.json],methods=[POST]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.ShutdownMvcEndpoint.invoke()
+""2017-01-12 15:41:08 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/beans || /beans.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 15:41:08 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/dump || /dump.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 15:41:08 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/heapdump || /heapdump.json],methods=[GET],produces=[application/octet-stream]}" onto public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException
+""2017-01-12 15:41:08 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/env/{name:.*}],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
+""2017-01-12 15:41:08 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/env || /env.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 15:41:08 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/mappings || /mappings.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 15:41:08 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/autoconfig || /autoconfig.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 15:41:08 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/logfile || /logfile.json],methods=[GET || HEAD]}" onto public void org.springframework.boot.actuate.endpoint.mvc.LogFileMvcEndpoint.invoke(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws javax.servlet.ServletException,java.io.IOException
+""2017-01-12 15:41:08 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/trace || /trace.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 15:41:09 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+""2017-01-12 15:41:09 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'jpaConfig' has been autodetected for JMX exposure
+""2017-01-12 15:41:09 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+""2017-01-12 15:41:09 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'jpaConfig': registering with JMX server as MBean [by.silverscreen.config:name=jpaConfig,type=JpaConfig]
+""2017-01-12 15:41:09 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+""2017-01-12 15:41:09 [main] INFO  o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 0
+""2017-01-12 15:41:09 [main] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+""2017-01-12 15:41:09 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+""2017-01-12 15:41:09 [main] INFO  b.silverscreen.PushserverApplication - Started PushserverApplication in 9.416 seconds (JVM running for 16.42)
+""2017-01-12 15:41:09 [pool-1-thread-1] INFO  org.jooq.Constants - 
+                                      
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@  @@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@        @@  @  @  @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Thank you for using jOOQ 3.9.0
+                                      
+""2017-01-12 15:41:12 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:Jeniamakarchik login
+""2017-01-12 15:41:28 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - Ла-Ла Ленд:12.01.2017 13:20 Galileo, ул.Бобруйская, 6, Зал 5
+""2017-01-12 15:41:29 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:Jeniamakarchik logout
+""2017-01-12 15:41:31 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:zrachko login
+""2017-01-12 15:41:31 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 15:41:32 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:zrachko logout
+""2017-01-12 15:41:34 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:paradox login
+""2017-01-12 15:41:35 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 15:41:35 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:paradox logout
+""2017-01-12 15:41:37 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:Gently login
+""2017-01-12 15:41:38 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 15:41:38 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:Gently logout
+""2017-01-12 15:41:40 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:anna_utochka login
+""2017-01-12 15:41:41 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 15:41:41 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:anna_utochka logout
+""2017-01-12 15:41:43 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:Therenas login
+""2017-01-12 15:41:44 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - Пассажиры (3D):12.01.2017 21:10 Arena, пр-т Победителей, 84, Зал 6
+""2017-01-12 15:41:44 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:Therenas logout
+""2017-01-12 15:41:46 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:gerryfarry  login
+""2017-01-12 15:41:48 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 15:41:48 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:gerryfarry  logout
+""2017-01-12 15:41:50 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:anuta111 login
+""2017-01-12 15:41:51 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 15:41:51 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:anuta111 logout
+""2017-01-12 15:41:53 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:vpeg login
+""2017-01-12 15:41:54 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 15:41:54 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:vpeg logout
+""2017-01-12 15:41:56 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:Mr_Unknown login
+""2017-01-12 15:41:56 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 15:41:57 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:Mr_Unknown logout
+""2017-01-12 15:41:59 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:andymark login
+""2017-01-12 15:42:00 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 15:42:00 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:andymark logout
+""2017-01-12 15:42:01 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:redline login
+""2017-01-12 15:42:03 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 15:42:03 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:redline logout
+""2017-01-12 15:42:05 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:art login
+""2017-01-12 15:42:06 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 15:42:07 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:art logout
+""2017-01-12 15:42:09 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:yarach login
+""2017-01-12 15:42:10 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 15:42:10 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:yarach logout
+""2017-01-12 15:42:12 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:scaffold login
+""2017-01-12 15:42:13 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 15:42:13 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:scaffold logout
+""2017-01-12 15:42:15 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:dimouse login
+""2017-01-12 15:42:15 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 15:42:17 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:dimouse logout
+""2017-01-12 15:42:19 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:christof2003 login
+""2017-01-12 15:42:20 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 15:42:20 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:christof2003 logout
+""2017-01-12 15:42:22 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:monik27 login
+""2017-01-12 15:42:22 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 15:42:23 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:monik27 logout
+""2017-01-12 15:42:25 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:DenisSanko login
+""2017-01-12 15:42:25 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 15:42:26 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:DenisSanko logout
+""2017-01-12 15:42:28 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:tolsti login
+""2017-01-12 15:42:29 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 15:42:31 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:tolsti logout
+""2017-01-12 15:42:33 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:vbakin login
+""2017-01-12 15:42:34 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 15:42:36 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:vbakin logout
+""2017-01-12 15:42:38 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:melnix login
+""2017-01-12 15:42:39 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 15:42:40 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:melnix logout
+""2017-01-12 15:42:42 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:katerinamiku login
+""2017-01-12 15:42:43 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 15:42:43 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:katerinamiku logout
+""2017-01-12 15:42:45 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:alesya_rabeko login
+""2017-01-12 15:42:46 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 15:42:47 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:alesya_rabeko logout
+""2017-01-12 15:42:48 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:BigTicket login
+""2017-01-12 15:42:49 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 15:42:49 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:BigTicket logout
+""2017-01-12 15:42:51 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:egor_park_22 login
+""2017-01-12 15:42:53 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 15:42:53 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:egor_park_22 logout
+""2017-01-12 15:42:55 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:MityaSkull login
+""2017-01-12 15:42:56 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 15:42:56 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:MityaSkull logout
+""2017-01-12 15:42:58 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:irina_shevchrnya login
+""2017-01-12 15:42:58 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 15:42:59 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:irina_shevchrnya logout
+""2017-01-12 15:43:00 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:akravch92 login
+""2017-01-12 15:43:01 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 15:43:02 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:akravch92 logout
+""2017-01-12 15:43:03 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:evgenicys login
+""2017-01-12 15:43:05 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 16:04:17 [main] INFO  b.silverscreen.PushserverApplication - Starting PushserverApplication on Gersis-PC with PID 4620 (C:\Users\sbaranau\IdeaProjects\pushserver\target\classes started by sbaranau in C:\Users\sbaranau\IdeaProjects\pushserver)
+""2017-01-12 16:04:17 [main] DEBUG b.silverscreen.PushserverApplication - Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+""2017-01-12 16:04:17 [main] INFO  b.silverscreen.PushserverApplication - No active profile set, falling back to default profiles: default
+""2017-01-12 16:04:17 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5f2812dd: startup date [Thu Jan 12 16:04:17 MSK 2017]; root of context hierarchy
+""2017-01-12 16:04:20 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$fc412104] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2017-01-12 16:04:20 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+""2017-01-12 16:04:21 [main] INFO  o.a.catalina.core.StandardService - Starting service Tomcat
+""2017-01-12 16:04:21 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.6
+""2017-01-12 16:04:21 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/pushserver] - Initializing Spring embedded WebApplicationContext
+""2017-01-12 16:04:21 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'metricsFilter' to: [/*]
+""2017-01-12 16:04:21 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+""2017-01-12 16:04:21 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+""2017-01-12 16:04:21 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+""2017-01-12 16:04:21 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+""2017-01-12 16:04:21 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+""2017-01-12 16:04:21 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webRequestLoggingFilter' to: [/*]
+""2017-01-12 16:04:21 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'applicationContextIdFilter' to: [/*]
+""2017-01-12 16:04:21 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+""2017-01-12 16:04:21 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Started.
+""2017-01-12 16:04:21 [main] INFO  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Driver does not support get/set network timeout for connections. (Method org.postgresql.jdbc42.Jdbc42Connection.getNetworkTimeout() is not yet implemented.)
+""2017-01-12 16:04:22 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+""2017-01-12 16:04:22 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+""2017-01-12 16:04:22 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.11.Final}
+""2017-01-12 16:04:22 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+""2017-01-12 16:04:22 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+""2017-01-12 16:04:22 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+""2017-01-12 16:04:22 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL94Dialect
+""2017-01-12 16:04:23 [main] INFO  o.h.e.j.e.i.LobCreatorBuilderImpl - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+""2017-01-12 16:04:23 [main] INFO  org.hibernate.type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@8cc98e
+""2017-01-12 16:04:23 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2017-01-12 16:04:24 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/css/**'], Ant [pattern='/js/**'], Ant [pattern='/images/**'], Ant [pattern='/webjars/**'], Ant [pattern='/**/favicon.ico'], Ant [pattern='/error']]], []
+""2017-01-12 16:04:24 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1080f60c, org.springframework.security.web.context.SecurityContextPersistenceFilter@703ee3ff, org.springframework.security.web.header.HeaderWriterFilter@6c7a8e62, org.springframework.security.web.authentication.logout.LogoutFilter@69d5f4f0, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2b6c9aea, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@499abc8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6d55f460, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3bc701ac, org.springframework.security.web.session.SessionManagementFilter@261a6ddd, org.springframework.security.web.access.ExceptionTranslationFilter@3afb9995, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3dcdbefd]
+""2017-01-12 16:04:24 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.boot.actuate.autoconfigure.ManagementWebSecurityAutoConfiguration$LazyEndpointPathRequestMatcher@46faada, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@49cbac5e, org.springframework.security.web.context.SecurityContextPersistenceFilter@361023db, org.springframework.security.web.header.HeaderWriterFilter@30557de3, org.springframework.security.web.authentication.logout.LogoutFilter@2eb8d320, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@24f79c5f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@49f1cd1d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@52d00ba5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2634447, org.springframework.security.web.session.SessionManagementFilter@78e08e99, org.springframework.security.web.access.ExceptionTranslationFilter@342966f2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7b7602b2]
+""2017-01-12 16:04:25 [main] INFO  o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+""2017-01-12 16:04:25 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/shutdown || /shutdown.json],methods=[POST]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.ShutdownMvcEndpoint.invoke()
+""2017-01-12 16:04:25 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/env/{name:.*}],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
+""2017-01-12 16:04:25 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/env || /env.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:04:25 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/trace || /trace.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:04:25 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/autoconfig || /autoconfig.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:04:25 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/info || /info.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:04:25 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/heapdump || /heapdump.json],methods=[GET],produces=[application/octet-stream]}" onto public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException
+""2017-01-12 16:04:25 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/mappings || /mappings.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:04:25 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/logfile || /logfile.json],methods=[GET || HEAD]}" onto public void org.springframework.boot.actuate.endpoint.mvc.LogFileMvcEndpoint.invoke(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws javax.servlet.ServletException,java.io.IOException
+""2017-01-12 16:04:25 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/beans || /beans.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:04:25 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/dump || /dump.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:04:25 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/health || /health.json],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(java.security.Principal)
+""2017-01-12 16:04:25 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/configprops || /configprops.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:04:25 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/metrics/{name:.*}],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)
+""2017-01-12 16:04:25 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/metrics || /metrics.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:04:26 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+""2017-01-12 16:04:26 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'jpaConfig' has been autodetected for JMX exposure
+""2017-01-12 16:04:26 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+""2017-01-12 16:04:26 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'jpaConfig': registering with JMX server as MBean [by.silverscreen.config:name=jpaConfig,type=JpaConfig]
+""2017-01-12 16:04:26 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+""2017-01-12 16:04:26 [main] INFO  o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 0
+""2017-01-12 16:04:26 [main] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+""2017-01-12 16:04:26 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+""2017-01-12 16:04:26 [main] INFO  b.silverscreen.PushserverApplication - Started PushserverApplication in 10.088 seconds (JVM running for 17.46)
+""2017-01-12 16:04:27 [pool-1-thread-1] INFO  org.jooq.Constants - 
+                                      
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@  @@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@        @@  @  @  @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Thank you for using jOOQ 3.9.0
+                                      
+""2017-01-12 16:04:29 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:Jeniamakarchik login
+""2017-01-12 16:04:31 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - Ла-Ла Ленд:12.01.2017 13:20 Galileo, ул.Бобруйская, 6, Зал 5
+""2017-01-12 16:04:32 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:Jeniamakarchik logout
+""2017-01-12 16:04:34 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:zrachko login
+""2017-01-12 16:04:35 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 16:04:36 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:zrachko logout
+""2017-01-12 16:04:37 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:paradox login
+""2017-01-12 16:04:39 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 16:04:39 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:paradox logout
+""2017-01-12 16:04:41 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:Gently login
+""2017-01-12 16:04:43 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 16:04:44 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:Gently logout
+""2017-01-12 16:04:46 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:anna_utochka login
+""2017-01-12 16:04:47 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 16:04:48 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:anna_utochka logout
+""2017-01-12 16:04:50 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:Therenas login
+""2017-01-12 16:04:51 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - Пассажиры (3D):12.01.2017 21:10 Arena, пр-т Победителей, 84, Зал 6
+""2017-01-12 16:04:52 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:Therenas logout
+""2017-01-12 16:17:49 [main] INFO  b.silverscreen.PushserverApplication - Starting PushserverApplication on Gersis-PC with PID 5024 (C:\Users\sbaranau\IdeaProjects\pushserver\target\classes started by sbaranau in C:\Users\sbaranau\IdeaProjects\pushserver)
+""2017-01-12 16:17:49 [main] DEBUG b.silverscreen.PushserverApplication - Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+""2017-01-12 16:17:49 [main] INFO  b.silverscreen.PushserverApplication - No active profile set, falling back to default profiles: default
+""2017-01-12 16:17:49 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@20389104: startup date [Thu Jan 12 16:17:49 MSK 2017]; root of context hierarchy
+""2017-01-12 16:17:51 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$8592f3bd] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2017-01-12 16:17:51 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+""2017-01-12 16:17:51 [main] INFO  o.a.catalina.core.StandardService - Starting service Tomcat
+""2017-01-12 16:17:51 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.6
+""2017-01-12 16:17:52 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/pushserver] - Initializing Spring embedded WebApplicationContext
+""2017-01-12 16:17:52 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'metricsFilter' to: [/*]
+""2017-01-12 16:17:52 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+""2017-01-12 16:17:52 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+""2017-01-12 16:17:52 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+""2017-01-12 16:17:52 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+""2017-01-12 16:17:52 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+""2017-01-12 16:17:52 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webRequestLoggingFilter' to: [/*]
+""2017-01-12 16:17:52 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'applicationContextIdFilter' to: [/*]
+""2017-01-12 16:17:52 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+""2017-01-12 16:17:52 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Started.
+""2017-01-12 16:17:52 [main] INFO  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Driver does not support get/set network timeout for connections. (Method org.postgresql.jdbc42.Jdbc42Connection.getNetworkTimeout() is not yet implemented.)
+""2017-01-12 16:17:52 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+""2017-01-12 16:17:52 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+""2017-01-12 16:17:53 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.11.Final}
+""2017-01-12 16:17:53 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+""2017-01-12 16:17:53 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+""2017-01-12 16:17:53 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+""2017-01-12 16:17:53 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL94Dialect
+""2017-01-12 16:17:53 [main] INFO  o.h.e.j.e.i.LobCreatorBuilderImpl - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+""2017-01-12 16:17:53 [main] INFO  org.hibernate.type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@3e93e0b4
+""2017-01-12 16:17:54 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2017-01-12 16:17:55 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/css/**'], Ant [pattern='/js/**'], Ant [pattern='/images/**'], Ant [pattern='/webjars/**'], Ant [pattern='/**/favicon.ico'], Ant [pattern='/error']]], []
+""2017-01-12 16:17:55 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@35a4202, org.springframework.security.web.context.SecurityContextPersistenceFilter@5bda50d8, org.springframework.security.web.header.HeaderWriterFilter@46e8ef3e, org.springframework.security.web.authentication.logout.LogoutFilter@7e0afc03, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@691298d1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4b524cc3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@45c4d179, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2dba29fa, org.springframework.security.web.session.SessionManagementFilter@39612a23, org.springframework.security.web.access.ExceptionTranslationFilter@540cf11d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@29a75278]
+""2017-01-12 16:17:55 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.boot.actuate.autoconfigure.ManagementWebSecurityAutoConfiguration$LazyEndpointPathRequestMatcher@79aa9b4a, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@109bff0e, org.springframework.security.web.context.SecurityContextPersistenceFilter@7e143acc, org.springframework.security.web.header.HeaderWriterFilter@198d12e2, org.springframework.security.web.authentication.logout.LogoutFilter@31c2537a, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1a5cee98, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4e1b5379, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3f70425a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@27d3126f, org.springframework.security.web.session.SessionManagementFilter@566b0ae4, org.springframework.security.web.access.ExceptionTranslationFilter@217239be, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@737880e2]
+""2017-01-12 16:17:56 [main] INFO  o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+""2017-01-12 16:17:56 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/mappings || /mappings.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:17:56 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/trace || /trace.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:17:56 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/dump || /dump.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:17:56 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/env/{name:.*}],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
+""2017-01-12 16:17:56 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/env || /env.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:17:56 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/heapdump || /heapdump.json],methods=[GET],produces=[application/octet-stream]}" onto public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException
+""2017-01-12 16:17:56 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/autoconfig || /autoconfig.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:17:56 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/configprops || /configprops.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:17:56 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/info || /info.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:17:56 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/logfile || /logfile.json],methods=[GET || HEAD]}" onto public void org.springframework.boot.actuate.endpoint.mvc.LogFileMvcEndpoint.invoke(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws javax.servlet.ServletException,java.io.IOException
+""2017-01-12 16:17:56 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/health || /health.json],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(java.security.Principal)
+""2017-01-12 16:17:56 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/shutdown || /shutdown.json],methods=[POST]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.ShutdownMvcEndpoint.invoke()
+""2017-01-12 16:17:56 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/metrics/{name:.*}],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)
+""2017-01-12 16:17:56 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/metrics || /metrics.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:17:56 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/beans || /beans.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:17:57 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+""2017-01-12 16:17:57 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'jpaConfig' has been autodetected for JMX exposure
+""2017-01-12 16:17:57 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+""2017-01-12 16:17:57 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'jpaConfig': registering with JMX server as MBean [by.silverscreen.config:name=jpaConfig,type=JpaConfig]
+""2017-01-12 16:17:57 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+""2017-01-12 16:17:57 [main] INFO  o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 0
+""2017-01-12 16:17:57 [main] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+""2017-01-12 16:17:57 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+""2017-01-12 16:17:57 [main] INFO  b.silverscreen.PushserverApplication - Started PushserverApplication in 9.511 seconds (JVM running for 16.449)
+""2017-01-12 16:17:57 [pool-1-thread-1] INFO  org.jooq.Constants - 
+                                      
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@  @@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@        @@  @  @  @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Thank you for using jOOQ 3.9.0
+                                      
+""2017-01-12 16:18:00 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:svyatoslav login
+""2017-01-12 16:18:02 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 16:18:03 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:svyatoslav logout
+""2017-01-12 16:18:08 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:Jeniamakarchik login
+""2017-01-12 16:18:09 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - Ла-Ла Ленд:12.01.2017 13:20 Galileo, ул.Бобруйская, 6, Зал 5
+""2017-01-12 16:18:10 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:Jeniamakarchik logout
+""2017-01-12 16:18:14 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:zrachko login
+""2017-01-12 16:18:52 [main] INFO  b.silverscreen.PushserverApplication - Starting PushserverApplication on Gersis-PC with PID 5276 (C:\Users\sbaranau\IdeaProjects\pushserver\target\classes started by sbaranau in C:\Users\sbaranau\IdeaProjects\pushserver)
+""2017-01-12 16:18:52 [main] DEBUG b.silverscreen.PushserverApplication - Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+""2017-01-12 16:18:52 [main] INFO  b.silverscreen.PushserverApplication - No active profile set, falling back to default profiles: default
+""2017-01-12 16:18:53 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@38cb55d3: startup date [Thu Jan 12 16:18:53 MSK 2017]; root of context hierarchy
+""2017-01-12 16:18:55 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ef196531] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2017-01-12 16:18:56 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+""2017-01-12 16:18:56 [main] INFO  o.a.catalina.core.StandardService - Starting service Tomcat
+""2017-01-12 16:18:56 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.6
+""2017-01-12 16:18:56 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/pushserver] - Initializing Spring embedded WebApplicationContext
+""2017-01-12 16:18:56 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'metricsFilter' to: [/*]
+""2017-01-12 16:18:56 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+""2017-01-12 16:18:56 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+""2017-01-12 16:18:56 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+""2017-01-12 16:18:56 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+""2017-01-12 16:18:56 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+""2017-01-12 16:18:56 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webRequestLoggingFilter' to: [/*]
+""2017-01-12 16:18:56 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'applicationContextIdFilter' to: [/*]
+""2017-01-12 16:18:56 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+""2017-01-12 16:18:56 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Started.
+""2017-01-12 16:18:56 [main] INFO  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Driver does not support get/set network timeout for connections. (Method org.postgresql.jdbc42.Jdbc42Connection.getNetworkTimeout() is not yet implemented.)
+""2017-01-12 16:18:57 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+""2017-01-12 16:18:57 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+""2017-01-12 16:18:57 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.11.Final}
+""2017-01-12 16:18:57 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+""2017-01-12 16:18:57 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+""2017-01-12 16:18:57 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+""2017-01-12 16:18:57 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL94Dialect
+""2017-01-12 16:18:58 [main] INFO  o.h.e.j.e.i.LobCreatorBuilderImpl - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+""2017-01-12 16:18:58 [main] INFO  org.hibernate.type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@1bec5e09
+""2017-01-12 16:18:58 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2017-01-12 16:18:59 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/css/**'], Ant [pattern='/js/**'], Ant [pattern='/images/**'], Ant [pattern='/webjars/**'], Ant [pattern='/**/favicon.ico'], Ant [pattern='/error']]], []
+""2017-01-12 16:19:00 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1f0b8167, org.springframework.security.web.context.SecurityContextPersistenceFilter@31ce0024, org.springframework.security.web.header.HeaderWriterFilter@f2c1fb1, org.springframework.security.web.authentication.logout.LogoutFilter@1adca90e, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@294e3da4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7ef4a90f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@68d687b7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@35d580fd, org.springframework.security.web.session.SessionManagementFilter@7fe89992, org.springframework.security.web.access.ExceptionTranslationFilter@42e79aaf, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6eef4f9a]
+""2017-01-12 16:19:00 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.boot.actuate.autoconfigure.ManagementWebSecurityAutoConfiguration$LazyEndpointPathRequestMatcher@2e73bec6, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@209ab6a9, org.springframework.security.web.context.SecurityContextPersistenceFilter@7b295022, org.springframework.security.web.header.HeaderWriterFilter@dffce09, org.springframework.security.web.authentication.logout.LogoutFilter@5dd73c4b, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@4ba0a669, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@36972698, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@45eb29c5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@ccb923c, org.springframework.security.web.session.SessionManagementFilter@5b68799a, org.springframework.security.web.access.ExceptionTranslationFilter@44e12255, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1057954b]
+""2017-01-12 16:19:00 [main] INFO  o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+""2017-01-12 16:19:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/configprops || /configprops.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:19:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/trace || /trace.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:19:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/logfile || /logfile.json],methods=[GET || HEAD]}" onto public void org.springframework.boot.actuate.endpoint.mvc.LogFileMvcEndpoint.invoke(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws javax.servlet.ServletException,java.io.IOException
+""2017-01-12 16:19:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/dump || /dump.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:19:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/beans || /beans.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:19:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/env/{name:.*}],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
+""2017-01-12 16:19:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/env || /env.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:19:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/shutdown || /shutdown.json],methods=[POST]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.ShutdownMvcEndpoint.invoke()
+""2017-01-12 16:19:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/heapdump || /heapdump.json],methods=[GET],produces=[application/octet-stream]}" onto public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException
+""2017-01-12 16:19:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/health || /health.json],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(java.security.Principal)
+""2017-01-12 16:19:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/metrics/{name:.*}],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)
+""2017-01-12 16:19:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/metrics || /metrics.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:19:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/info || /info.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:19:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/mappings || /mappings.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:19:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/autoconfig || /autoconfig.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:19:01 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+""2017-01-12 16:19:01 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'jpaConfig' has been autodetected for JMX exposure
+""2017-01-12 16:19:01 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+""2017-01-12 16:19:01 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'jpaConfig': registering with JMX server as MBean [by.silverscreen.config:name=jpaConfig,type=JpaConfig]
+""2017-01-12 16:19:01 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+""2017-01-12 16:19:01 [main] INFO  o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 0
+""2017-01-12 16:19:02 [main] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+""2017-01-12 16:19:02 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+""2017-01-12 16:19:02 [main] INFO  b.silverscreen.PushserverApplication - Started PushserverApplication in 10.175 seconds (JVM running for 17.483)
+""2017-01-12 16:19:02 [pool-1-thread-1] INFO  org.jooq.Constants - 
+                                      
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@  @@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@        @@  @  @  @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Thank you for using jOOQ 3.9.0
+                                      
+""2017-01-12 16:19:04 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:pro100kosoff login
+""2017-01-12 16:19:05 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 16:19:06 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:pro100kosoff logout
+""2017-01-12 16:21:18 [main] INFO  b.silverscreen.PushserverApplication - Starting PushserverApplication on Gersis-PC with PID 2736 (C:\Users\sbaranau\IdeaProjects\pushserver\target\classes started by sbaranau in C:\Users\sbaranau\IdeaProjects\pushserver)
+""2017-01-12 16:21:18 [main] DEBUG b.silverscreen.PushserverApplication - Running with Spring Boot v1.4.2.RELEASE, Spring v4.3.4.RELEASE
+""2017-01-12 16:21:18 [main] INFO  b.silverscreen.PushserverApplication - No active profile set, falling back to default profiles: default
+""2017-01-12 16:21:18 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1e260534: startup date [Thu Jan 12 16:21:18 MSK 2017]; root of context hierarchy
+""2017-01-12 16:21:20 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$bc3a6c99] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2017-01-12 16:21:21 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+""2017-01-12 16:21:21 [main] INFO  o.a.catalina.core.StandardService - Starting service Tomcat
+""2017-01-12 16:21:21 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.6
+""2017-01-12 16:21:21 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/pushserver] - Initializing Spring embedded WebApplicationContext
+""2017-01-12 16:21:21 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'metricsFilter' to: [/*]
+""2017-01-12 16:21:21 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+""2017-01-12 16:21:21 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+""2017-01-12 16:21:21 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+""2017-01-12 16:21:21 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+""2017-01-12 16:21:21 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+""2017-01-12 16:21:21 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webRequestLoggingFilter' to: [/*]
+""2017-01-12 16:21:21 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'applicationContextIdFilter' to: [/*]
+""2017-01-12 16:21:21 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+""2017-01-12 16:21:21 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Started.
+""2017-01-12 16:21:22 [main] INFO  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Driver does not support get/set network timeout for connections. (Method org.postgresql.jdbc42.Jdbc42Connection.getNetworkTimeout() is not yet implemented.)
+""2017-01-12 16:21:22 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+""2017-01-12 16:21:22 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+""2017-01-12 16:21:22 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.11.Final}
+""2017-01-12 16:21:22 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+""2017-01-12 16:21:22 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+""2017-01-12 16:21:22 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+""2017-01-12 16:21:23 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL94Dialect
+""2017-01-12 16:21:23 [main] INFO  o.h.e.j.e.i.LobCreatorBuilderImpl - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+""2017-01-12 16:21:23 [main] INFO  org.hibernate.type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@360b926
+""2017-01-12 16:21:23 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2017-01-12 16:21:25 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/css/**'], Ant [pattern='/js/**'], Ant [pattern='/images/**'], Ant [pattern='/webjars/**'], Ant [pattern='/**/favicon.ico'], Ant [pattern='/error']]], []
+""2017-01-12 16:21:25 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@fc37838, org.springframework.security.web.context.SecurityContextPersistenceFilter@7b1827b4, org.springframework.security.web.header.HeaderWriterFilter@a413256, org.springframework.security.web.authentication.logout.LogoutFilter@65c5d39c, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@18544e84, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@115f371a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7836e108, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2ad74065, org.springframework.security.web.session.SessionManagementFilter@7d90c1d9, org.springframework.security.web.access.ExceptionTranslationFilter@748a0345, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@d6f40e8]
+""2017-01-12 16:21:25 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.boot.actuate.autoconfigure.ManagementWebSecurityAutoConfiguration$LazyEndpointPathRequestMatcher@4e2813c2, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@e1696ab, org.springframework.security.web.context.SecurityContextPersistenceFilter@52353db4, org.springframework.security.web.header.HeaderWriterFilter@158184ea, org.springframework.security.web.authentication.logout.LogoutFilter@7bdb1d12, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7c27065b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3a30989d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@238ffde5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@50f88083, org.springframework.security.web.session.SessionManagementFilter@4cb88fe, org.springframework.security.web.access.ExceptionTranslationFilter@9bc2a2d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@28cedfdd]
+""2017-01-12 16:21:25 [main] INFO  o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+""2017-01-12 16:21:26 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/env/{name:.*}],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
+""2017-01-12 16:21:26 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/env || /env.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:21:26 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/beans || /beans.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:21:26 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/configprops || /configprops.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:21:26 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/metrics/{name:.*}],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)
+""2017-01-12 16:21:26 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/metrics || /metrics.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:21:26 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/info || /info.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:21:26 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/autoconfig || /autoconfig.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:21:26 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/trace || /trace.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:21:26 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/logfile || /logfile.json],methods=[GET || HEAD]}" onto public void org.springframework.boot.actuate.endpoint.mvc.LogFileMvcEndpoint.invoke(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws javax.servlet.ServletException,java.io.IOException
+""2017-01-12 16:21:26 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/shutdown || /shutdown.json],methods=[POST]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.ShutdownMvcEndpoint.invoke()
+""2017-01-12 16:21:26 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/dump || /dump.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:21:26 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/mappings || /mappings.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:21:26 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/health || /health.json],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(java.security.Principal)
+""2017-01-12 16:21:26 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/heapdump || /heapdump.json],methods=[GET],produces=[application/octet-stream]}" onto public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException
+""2017-01-12 16:21:26 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+""2017-01-12 16:21:26 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'jpaConfig' has been autodetected for JMX exposure
+""2017-01-12 16:21:26 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+""2017-01-12 16:21:26 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'jpaConfig': registering with JMX server as MBean [by.silverscreen.config:name=jpaConfig,type=JpaConfig]
+""2017-01-12 16:21:26 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+""2017-01-12 16:21:26 [main] INFO  o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 0
+""2017-01-12 16:21:27 [main] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+""2017-01-12 16:21:27 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+""2017-01-12 16:21:27 [main] INFO  b.silverscreen.PushserverApplication - Started PushserverApplication in 9.772 seconds (JVM running for 18.238)
+""2017-01-12 16:21:27 [pool-1-thread-1] INFO  org.jooq.Constants - 
+                                      
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@  @@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@        @@  @  @  @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Thank you for using jOOQ 3.9.0
+                                      
+""2017-01-12 16:21:29 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:svyatoslav login
+""2017-01-12 16:21:36 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 16:21:37 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:svyatoslav logout
+""2017-01-12 16:21:39 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:Jeniamakarchik login
+""2017-01-12 16:21:40 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - Ла-Ла Ленд:12.01.2017 13:20 Galileo, ул.Бобруйская, 6, Зал 5
+""2017-01-12 16:21:41 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:Jeniamakarchik logout
+""2017-01-12 16:21:43 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:zrachko login
+""2017-01-12 16:21:45 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 16:21:50 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:paradox login
+""2017-01-12 16:21:51 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 16:21:51 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:paradox logout
+""2017-01-12 16:21:53 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:Gently login
+""2017-01-12 16:21:55 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 16:21:55 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:Gently logout
+""2017-01-12 16:21:57 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:anna_utochka login
+""2017-01-12 16:21:58 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - 
+""2017-01-12 16:21:59 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:anna_utochka logout
+""2017-01-12 16:22:00 [pool-1-thread-1] INFO  b.s.service.DataServiceImpl - User:Therenas login
+""2017-01-12 16:42:11 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2aa1c5c9: startup date [Thu Jan 12 16:42:11 MSK 2017]; root of context hierarchy
+""2017-01-12 16:42:13 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$bbd11057] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2017-01-12 16:42:14 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+""2017-01-12 16:42:14 [main] INFO  o.a.catalina.core.StandardService - Starting service Tomcat
+""2017-01-12 16:42:14 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.6
+""2017-01-12 16:42:14 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/pushserver] - Initializing Spring embedded WebApplicationContext
+""2017-01-12 16:42:14 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3114 ms
+""2017-01-12 16:42:14 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'metricsFilter' to: [/*]
+""2017-01-12 16:42:14 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+""2017-01-12 16:42:14 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+""2017-01-12 16:42:14 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+""2017-01-12 16:42:14 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+""2017-01-12 16:42:14 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+""2017-01-12 16:42:14 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webRequestLoggingFilter' to: [/*]
+""2017-01-12 16:42:14 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'applicationContextIdFilter' to: [/*]
+""2017-01-12 16:42:14 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+""2017-01-12 16:42:15 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Started.
+""2017-01-12 16:42:15 [main] INFO  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Driver does not support get/set network timeout for connections. (Method org.postgresql.jdbc42.Jdbc42Connection.getNetworkTimeout() is not yet implemented.)
+""2017-01-12 16:42:15 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+""2017-01-12 16:42:15 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+""2017-01-12 16:42:15 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.11.Final}
+""2017-01-12 16:42:15 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+""2017-01-12 16:42:15 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+""2017-01-12 16:42:15 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+""2017-01-12 16:42:16 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL94Dialect
+""2017-01-12 16:42:16 [main] INFO  o.h.e.j.e.i.LobCreatorBuilderImpl - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+""2017-01-12 16:42:16 [main] INFO  org.hibernate.type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@3d78a718
+""2017-01-12 16:42:16 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2017-01-12 16:42:17 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/css/**'], Ant [pattern='/js/**'], Ant [pattern='/images/**'], Ant [pattern='/webjars/**'], Ant [pattern='/**/favicon.ico'], Ant [pattern='/error']]], []
+""2017-01-12 16:42:18 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@636163a, org.springframework.security.web.context.SecurityContextPersistenceFilter@9ba48a7, org.springframework.security.web.header.HeaderWriterFilter@4cc05155, org.springframework.security.web.authentication.logout.LogoutFilter@51d1376b, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@a5ef8c5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@76eb1621, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@314f4bde, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@34143bed, org.springframework.security.web.session.SessionManagementFilter@285c0376, org.springframework.security.web.access.ExceptionTranslationFilter@691cd1bb, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@732e8ed5]
+""2017-01-12 16:42:18 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.boot.actuate.autoconfigure.ManagementWebSecurityAutoConfiguration$LazyEndpointPathRequestMatcher@1c623c05, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4675772b, org.springframework.security.web.context.SecurityContextPersistenceFilter@2da587ca, org.springframework.security.web.header.HeaderWriterFilter@769bbdef, org.springframework.security.web.authentication.logout.LogoutFilter@6074c923, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@76656e21, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@67018dce, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4c5e3004, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@33ac994d, org.springframework.security.web.session.SessionManagementFilter@d34265a, org.springframework.security.web.access.ExceptionTranslationFilter@69a46951, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@f7f4a72]
+""2017-01-12 16:42:18 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2aa1c5c9: startup date [Thu Jan 12 16:42:11 MSK 2017]; root of context hierarchy
+""2017-01-12 16:42:18 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/token],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.lang.Object> by.silverscreen.controllers.PhoneRegistrator.getToken(by.silverscreen.Entities.TokenEntity) throws by.silverscreen.Utils.RestException
+""2017-01-12 16:42:18 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/tokens],methods=[GET],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.lang.Object> by.silverscreen.controllers.PhoneRegistrator.getAllToken() throws by.silverscreen.Utils.RestException
+""2017-01-12 16:42:18 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/send],methods=[POST],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.lang.Object> by.silverscreen.controllers.PhoneRegistrator.sendPush(by.silverscreen.Entities.PushEntity) throws by.silverscreen.Utils.RestException
+""2017-01-12 16:42:18 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+""2017-01-12 16:42:18 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+""2017-01-12 16:42:18 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+""2017-01-12 16:42:18 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+""2017-01-12 16:42:18 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+""2017-01-12 16:42:18 [main] INFO  o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+""2017-01-12 16:42:19 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/health || /health.json],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(java.security.Principal)
+""2017-01-12 16:42:19 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/autoconfig || /autoconfig.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:42:19 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/trace || /trace.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:42:19 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/dump || /dump.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:42:19 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/heapdump || /heapdump.json],methods=[GET],produces=[application/octet-stream]}" onto public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException
+""2017-01-12 16:42:19 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/info || /info.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:42:19 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/logfile || /logfile.json],methods=[GET || HEAD]}" onto public void org.springframework.boot.actuate.endpoint.mvc.LogFileMvcEndpoint.invoke(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws javax.servlet.ServletException,java.io.IOException
+""2017-01-12 16:42:19 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/shutdown || /shutdown.json],methods=[POST]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.ShutdownMvcEndpoint.invoke()
+""2017-01-12 16:42:19 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/env/{name:.*}],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
+""2017-01-12 16:42:19 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/env || /env.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:42:19 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/mappings || /mappings.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:42:19 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/configprops || /configprops.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:42:19 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/metrics/{name:.*}],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)
+""2017-01-12 16:42:19 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/metrics || /metrics.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:42:19 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/beans || /beans.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:42:19 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+""2017-01-12 16:42:19 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'jpaConfig' has been autodetected for JMX exposure
+""2017-01-12 16:42:19 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+""2017-01-12 16:42:19 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'jpaConfig': registering with JMX server as MBean [by.silverscreen.config:name=jpaConfig,type=JpaConfig]
+""2017-01-12 16:42:19 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+""2017-01-12 16:42:19 [main] INFO  o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 0
+""2017-01-12 16:42:19 [main] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+""2017-01-12 16:42:19 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+""2017-01-12 16:42:20 [pool-1-thread-1] INFO  org.jooq.Constants - 
+                                      
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@  @@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@        @@  @  @  @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Thank you for using jOOQ 3.9.0
+                                      
+""2017-01-12 16:45:10 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4aa92fd2: startup date [Thu Jan 12 16:45:10 MSK 2017]; root of context hierarchy
+""2017-01-12 16:45:13 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$445ad27] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2017-01-12 16:45:14 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+""2017-01-12 16:45:14 [main] INFO  o.a.catalina.core.StandardService - Starting service Tomcat
+""2017-01-12 16:45:14 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.6
+""2017-01-12 16:45:14 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/pushserver] - Initializing Spring embedded WebApplicationContext
+""2017-01-12 16:45:14 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3265 ms
+""2017-01-12 16:45:14 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'metricsFilter' to: [/*]
+""2017-01-12 16:45:14 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+""2017-01-12 16:45:14 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+""2017-01-12 16:45:14 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+""2017-01-12 16:45:14 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+""2017-01-12 16:45:14 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+""2017-01-12 16:45:14 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webRequestLoggingFilter' to: [/*]
+""2017-01-12 16:45:14 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'applicationContextIdFilter' to: [/*]
+""2017-01-12 16:45:14 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+""2017-01-12 16:45:14 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Started.
+""2017-01-12 16:45:14 [main] INFO  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Driver does not support get/set network timeout for connections. (Method org.postgresql.jdbc42.Jdbc42Connection.getNetworkTimeout() is not yet implemented.)
+""2017-01-12 16:45:15 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+""2017-01-12 16:45:15 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+""2017-01-12 16:45:15 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.11.Final}
+""2017-01-12 16:45:15 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+""2017-01-12 16:45:15 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+""2017-01-12 16:45:15 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+""2017-01-12 16:45:15 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL94Dialect
+""2017-01-12 16:45:16 [main] INFO  o.h.e.j.e.i.LobCreatorBuilderImpl - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+""2017-01-12 16:45:16 [main] INFO  org.hibernate.type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@6e4f1060
+""2017-01-12 16:45:16 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2017-01-12 16:45:17 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/css/**'], Ant [pattern='/js/**'], Ant [pattern='/images/**'], Ant [pattern='/webjars/**'], Ant [pattern='/**/favicon.ico'], Ant [pattern='/error']]], []
+""2017-01-12 16:45:17 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2db37c95, org.springframework.security.web.context.SecurityContextPersistenceFilter@3649e6bc, org.springframework.security.web.header.HeaderWriterFilter@6901306c, org.springframework.security.web.authentication.logout.LogoutFilter@46d937c7, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@a2be4e1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5c72ba75, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@645313bc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@f140dbf, org.springframework.security.web.session.SessionManagementFilter@7e9fb66b, org.springframework.security.web.access.ExceptionTranslationFilter@1f17db56, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@75929cc5]
+""2017-01-12 16:45:17 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.boot.actuate.autoconfigure.ManagementWebSecurityAutoConfiguration$LazyEndpointPathRequestMatcher@369405ef, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@997a626, org.springframework.security.web.context.SecurityContextPersistenceFilter@805703e, org.springframework.security.web.header.HeaderWriterFilter@36f8c4e, org.springframework.security.web.authentication.logout.LogoutFilter@5f8f56dc, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6ad8545c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4a1b993b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@35e961ca, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6f2fe576, org.springframework.security.web.session.SessionManagementFilter@6ae01d86, org.springframework.security.web.access.ExceptionTranslationFilter@bb93cb1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@93dec7e]
+""2017-01-12 16:45:17 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4aa92fd2: startup date [Thu Jan 12 16:45:10 MSK 2017]; root of context hierarchy
+""2017-01-12 16:45:18 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/token],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.lang.Object> by.silverscreen.controllers.PhoneRegistrator.getToken(by.silverscreen.Entities.TokenEntity) throws by.silverscreen.Utils.RestException
+""2017-01-12 16:45:18 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/tokens],methods=[GET],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.lang.Object> by.silverscreen.controllers.PhoneRegistrator.getAllToken() throws by.silverscreen.Utils.RestException
+""2017-01-12 16:45:18 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/send],methods=[POST],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.lang.Object> by.silverscreen.controllers.PhoneRegistrator.sendPush(by.silverscreen.Entities.PushEntity) throws by.silverscreen.Utils.RestException
+""2017-01-12 16:45:18 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+""2017-01-12 16:45:18 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+""2017-01-12 16:45:18 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+""2017-01-12 16:45:18 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+""2017-01-12 16:45:18 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+""2017-01-12 16:45:18 [main] INFO  o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+""2017-01-12 16:45:18 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/logfile || /logfile.json],methods=[GET || HEAD]}" onto public void org.springframework.boot.actuate.endpoint.mvc.LogFileMvcEndpoint.invoke(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws javax.servlet.ServletException,java.io.IOException
+""2017-01-12 16:45:18 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/configprops || /configprops.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:45:18 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/beans || /beans.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:45:18 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/autoconfig || /autoconfig.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:45:18 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/health || /health.json],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(java.security.Principal)
+""2017-01-12 16:45:18 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/mappings || /mappings.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:45:18 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/info || /info.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:45:18 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/trace || /trace.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:45:18 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/heapdump || /heapdump.json],methods=[GET],produces=[application/octet-stream]}" onto public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException
+""2017-01-12 16:45:18 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/shutdown || /shutdown.json],methods=[POST]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.ShutdownMvcEndpoint.invoke()
+""2017-01-12 16:45:18 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/env/{name:.*}],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
+""2017-01-12 16:45:18 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/env || /env.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:45:18 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/metrics/{name:.*}],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)
+""2017-01-12 16:45:18 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/metrics || /metrics.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:45:18 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/dump || /dump.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:45:19 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+""2017-01-12 16:45:19 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'jpaConfig' has been autodetected for JMX exposure
+""2017-01-12 16:45:19 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+""2017-01-12 16:45:19 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'jpaConfig': registering with JMX server as MBean [by.silverscreen.config:name=jpaConfig,type=JpaConfig]
+""2017-01-12 16:45:19 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+""2017-01-12 16:45:19 [main] INFO  o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 0
+""2017-01-12 16:45:19 [main] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+""2017-01-12 16:45:19 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+""2017-01-12 16:45:19 [pool-1-thread-1] INFO  org.jooq.Constants - 
+                                      
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@  @@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@        @@  @  @  @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Thank you for using jOOQ 3.9.0
+                                      
+""2017-01-12 16:46:53 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@13fe11ca: startup date [Thu Jan 12 16:46:53 MSK 2017]; root of context hierarchy
+""2017-01-12 16:46:55 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$dc40bec6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2017-01-12 16:46:56 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+""2017-01-12 16:46:56 [main] INFO  o.a.catalina.core.StandardService - Starting service Tomcat
+""2017-01-12 16:46:56 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.6
+""2017-01-12 16:46:56 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/pushserver] - Initializing Spring embedded WebApplicationContext
+""2017-01-12 16:46:56 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3115 ms
+""2017-01-12 16:46:56 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'metricsFilter' to: [/*]
+""2017-01-12 16:46:56 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+""2017-01-12 16:46:56 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+""2017-01-12 16:46:56 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+""2017-01-12 16:46:56 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+""2017-01-12 16:46:56 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+""2017-01-12 16:46:56 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webRequestLoggingFilter' to: [/*]
+""2017-01-12 16:46:56 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'applicationContextIdFilter' to: [/*]
+""2017-01-12 16:46:56 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+""2017-01-12 16:46:57 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Started.
+""2017-01-12 16:46:57 [main] INFO  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Driver does not support get/set network timeout for connections. (Method org.postgresql.jdbc42.Jdbc42Connection.getNetworkTimeout() is not yet implemented.)
+""2017-01-12 16:46:57 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+""2017-01-12 16:46:57 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+""2017-01-12 16:46:57 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.11.Final}
+""2017-01-12 16:46:57 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+""2017-01-12 16:46:57 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+""2017-01-12 16:46:57 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+""2017-01-12 16:46:58 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL94Dialect
+""2017-01-12 16:46:58 [main] INFO  o.h.e.j.e.i.LobCreatorBuilderImpl - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+""2017-01-12 16:46:58 [main] INFO  org.hibernate.type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@5ae7158d
+""2017-01-12 16:46:58 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2017-01-12 16:46:59 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/css/**'], Ant [pattern='/js/**'], Ant [pattern='/images/**'], Ant [pattern='/webjars/**'], Ant [pattern='/**/favicon.ico'], Ant [pattern='/error']]], []
+""2017-01-12 16:47:00 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@385aa358, org.springframework.security.web.context.SecurityContextPersistenceFilter@710e9433, org.springframework.security.web.header.HeaderWriterFilter@6baa85ce, org.springframework.security.web.authentication.logout.LogoutFilter@611eb623, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@726b6c09, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@665c3e2a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@46174a1a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7fa96e1e, org.springframework.security.web.session.SessionManagementFilter@71c9d0a5, org.springframework.security.web.access.ExceptionTranslationFilter@1b4c2474, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3fa3d9ed]
+""2017-01-12 16:47:00 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.boot.actuate.autoconfigure.ManagementWebSecurityAutoConfiguration$LazyEndpointPathRequestMatcher@3299340, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1ba1cd40, org.springframework.security.web.context.SecurityContextPersistenceFilter@5a36e511, org.springframework.security.web.header.HeaderWriterFilter@790bf6ec, org.springframework.security.web.authentication.logout.LogoutFilter@2db10bb8, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@54e1edb8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@69acb92b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4f369e64, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@26f8361d, org.springframework.security.web.session.SessionManagementFilter@19ef6143, org.springframework.security.web.access.ExceptionTranslationFilter@7cd9fe12, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3041a4a5]
+""2017-01-12 16:47:00 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@13fe11ca: startup date [Thu Jan 12 16:46:53 MSK 2017]; root of context hierarchy
+""2017-01-12 16:47:00 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/token],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.lang.Object> by.silverscreen.controllers.PhoneRegistrator.getToken(by.silverscreen.Entities.TokenEntity) throws by.silverscreen.Utils.RestException
+""2017-01-12 16:47:00 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/tokens],methods=[GET],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.lang.Object> by.silverscreen.controllers.PhoneRegistrator.getAllToken() throws by.silverscreen.Utils.RestException
+""2017-01-12 16:47:00 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/send],methods=[POST],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.lang.Object> by.silverscreen.controllers.PhoneRegistrator.sendPush(by.silverscreen.Entities.PushEntity) throws by.silverscreen.Utils.RestException
+""2017-01-12 16:47:00 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+""2017-01-12 16:47:00 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+""2017-01-12 16:47:00 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+""2017-01-12 16:47:00 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+""2017-01-12 16:47:00 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+""2017-01-12 16:47:00 [main] INFO  o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+""2017-01-12 16:47:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/autoconfig || /autoconfig.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:47:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/mappings || /mappings.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:47:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/logfile || /logfile.json],methods=[GET || HEAD]}" onto public void org.springframework.boot.actuate.endpoint.mvc.LogFileMvcEndpoint.invoke(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws javax.servlet.ServletException,java.io.IOException
+""2017-01-12 16:47:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/shutdown || /shutdown.json],methods=[POST]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.ShutdownMvcEndpoint.invoke()
+""2017-01-12 16:47:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/env/{name:.*}],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
+""2017-01-12 16:47:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/env || /env.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:47:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/dump || /dump.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:47:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/metrics/{name:.*}],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)
+""2017-01-12 16:47:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/metrics || /metrics.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:47:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/beans || /beans.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:47:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/heapdump || /heapdump.json],methods=[GET],produces=[application/octet-stream]}" onto public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException
+""2017-01-12 16:47:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/trace || /trace.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:47:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/info || /info.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:47:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/configprops || /configprops.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+""2017-01-12 16:47:01 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/health || /health.json],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(java.security.Principal)
+""2017-01-12 16:47:01 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+""2017-01-12 16:47:01 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'jpaConfig' has been autodetected for JMX exposure
+""2017-01-12 16:47:01 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+""2017-01-12 16:47:01 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'jpaConfig': registering with JMX server as MBean [by.silverscreen.config:name=jpaConfig,type=JpaConfig]
+""2017-01-12 16:47:01 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+""2017-01-12 16:47:01 [main] INFO  o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 0
+""2017-01-12 16:47:01 [main] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+""2017-01-12 16:47:01 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+""2017-01-12 16:47:02 [pool-1-thread-1] INFO  org.jooq.Constants - 
+                                      
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@  @@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@        @@  @  @  @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Thank you for using jOOQ 3.9.0
+                                      
+"2017-01-12 16:58:15 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@51a5df50: startup date [Thu Jan 12 16:58:15 MSK 2017]; root of context hierarchy
+2017-01-12 16:58:17 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$acbdaf1a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-01-12 16:58:18 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2017-01-12 16:58:18 [main] INFO  o.a.catalina.core.StandardService - Starting service Tomcat
+2017-01-12 16:58:18 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.6
+2017-01-12 16:58:18 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/pushserver] - Initializing Spring embedded WebApplicationContext
+2017-01-12 16:58:18 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2932 ms
+2017-01-12 16:58:18 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'metricsFilter' to: [/*]
+2017-01-12 16:58:18 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-01-12 16:58:18 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-01-12 16:58:18 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-01-12 16:58:18 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2017-01-12 16:58:18 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+2017-01-12 16:58:18 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webRequestLoggingFilter' to: [/*]
+2017-01-12 16:58:18 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'applicationContextIdFilter' to: [/*]
+2017-01-12 16:58:18 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2017-01-12 16:58:18 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Started.
+2017-01-12 16:58:19 [main] INFO  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Driver does not support get/set network timeout for connections. (Method org.postgresql.jdbc42.Jdbc42Connection.getNetworkTimeout() is not yet implemented.)
+2017-01-12 16:58:19 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2017-01-12 16:58:19 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2017-01-12 16:58:19 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.11.Final}
+2017-01-12 16:58:19 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2017-01-12 16:58:19 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2017-01-12 16:58:19 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-01-12 16:58:20 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL94Dialect
+2017-01-12 16:58:21 [main] INFO  o.h.e.j.e.i.LobCreatorBuilderImpl - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2017-01-12 16:58:21 [main] INFO  org.hibernate.type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@1b5afabc
+2017-01-12 16:58:21 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2017-01-12 16:58:22 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/css/**'], Ant [pattern='/js/**'], Ant [pattern='/images/**'], Ant [pattern='/webjars/**'], Ant [pattern='/**/favicon.ico'], Ant [pattern='/error']]], []
+2017-01-12 16:58:22 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@706c59a3, org.springframework.security.web.context.SecurityContextPersistenceFilter@f314a94, org.springframework.security.web.header.HeaderWriterFilter@660a355c, org.springframework.security.web.authentication.logout.LogoutFilter@7e7d2f5, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@473d8d40, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@666283, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1ad9019, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1da142c1, org.springframework.security.web.session.SessionManagementFilter@4ed7ec3f, org.springframework.security.web.access.ExceptionTranslationFilter@2c6e6162, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@582e9453]
+2017-01-12 16:58:23 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.boot.actuate.autoconfigure.ManagementWebSecurityAutoConfiguration$LazyEndpointPathRequestMatcher@32e01c7c, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6af924bf, org.springframework.security.web.context.SecurityContextPersistenceFilter@6b4c2a9a, org.springframework.security.web.header.HeaderWriterFilter@14895bd7, org.springframework.security.web.authentication.logout.LogoutFilter@7873b6f2, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3eb060da, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@295bca0d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@77d27b12, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1abc1518, org.springframework.security.web.session.SessionManagementFilter@25854567, org.springframework.security.web.access.ExceptionTranslationFilter@5e1398d6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@43e9161]
+2017-01-12 16:58:23 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@51a5df50: startup date [Thu Jan 12 16:58:15 MSK 2017]; root of context hierarchy
+2017-01-12 16:58:23 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/token],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.lang.Object> by.silverscreen.controllers.PhoneRegistrator.getToken(by.silverscreen.Entities.TokenEntity) throws by.silverscreen.Utils.RestException
+2017-01-12 16:58:23 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/tokens],methods=[GET],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.lang.Object> by.silverscreen.controllers.PhoneRegistrator.getAllToken() throws by.silverscreen.Utils.RestException
+2017-01-12 16:58:23 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/send],methods=[POST],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.lang.Object> by.silverscreen.controllers.PhoneRegistrator.sendPush(by.silverscreen.Entities.PushEntity) throws by.silverscreen.Utils.RestException
+2017-01-12 16:58:23 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-01-12 16:58:23 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-01-12 16:58:23 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-12 16:58:23 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-12 16:58:23 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-12 16:58:23 [main] INFO  o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2017-01-12 16:58:24 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/health || /health.json],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(java.security.Principal)
+2017-01-12 16:58:24 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/mappings || /mappings.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-01-12 16:58:24 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/metrics/{name:.*}],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)
+2017-01-12 16:58:24 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/metrics || /metrics.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-01-12 16:58:24 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/autoconfig || /autoconfig.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-01-12 16:58:24 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/info || /info.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-01-12 16:58:24 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/configprops || /configprops.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-01-12 16:58:24 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/shutdown || /shutdown.json],methods=[POST]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.ShutdownMvcEndpoint.invoke()
+2017-01-12 16:58:24 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/beans || /beans.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-01-12 16:58:24 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/heapdump || /heapdump.json],methods=[GET],produces=[application/octet-stream]}" onto public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException
+2017-01-12 16:58:24 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/trace || /trace.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-01-12 16:58:24 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/env/{name:.*}],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
+2017-01-12 16:58:24 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/env || /env.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-01-12 16:58:24 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/logfile || /logfile.json],methods=[GET || HEAD]}" onto public void org.springframework.boot.actuate.endpoint.mvc.LogFileMvcEndpoint.invoke(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws javax.servlet.ServletException,java.io.IOException
+2017-01-12 16:58:24 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/dump || /dump.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-01-12 16:58:24 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2017-01-12 16:58:24 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'jpaConfig' has been autodetected for JMX exposure
+2017-01-12 16:58:24 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2017-01-12 16:58:24 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'jpaConfig': registering with JMX server as MBean [by.silverscreen.config:name=jpaConfig,type=JpaConfig]
+2017-01-12 16:58:24 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2017-01-12 16:58:24 [main] INFO  o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 0
+2017-01-12 16:58:24 [main] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2017-01-12 16:58:24 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+2017-01-12 16:59:05 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@508bfcc6: startup date [Thu Jan 12 16:59:05 MSK 2017]; root of context hierarchy
+2017-01-12 16:59:07 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [class org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$25a16636] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2017-01-12 16:59:07 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2017-01-12 16:59:07 [main] INFO  o.a.catalina.core.StandardService - Starting service Tomcat
+2017-01-12 16:59:07 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.6
+2017-01-12 16:59:07 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/pushserver] - Initializing Spring embedded WebApplicationContext
+2017-01-12 16:59:07 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2814 ms
+2017-01-12 16:59:08 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'metricsFilter' to: [/*]
+2017-01-12 16:59:08 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-01-12 16:59:08 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-01-12 16:59:08 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-01-12 16:59:08 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2017-01-12 16:59:08 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+2017-01-12 16:59:08 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webRequestLoggingFilter' to: [/*]
+2017-01-12 16:59:08 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'applicationContextIdFilter' to: [/*]
+2017-01-12 16:59:08 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2017-01-12 16:59:08 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Started.
+2017-01-12 16:59:08 [main] INFO  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Driver does not support get/set network timeout for connections. (Method org.postgresql.jdbc42.Jdbc42Connection.getNetworkTimeout() is not yet implemented.)
+2017-01-12 16:59:08 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2017-01-12 16:59:08 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2017-01-12 16:59:08 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.11.Final}
+2017-01-12 16:59:08 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2017-01-12 16:59:08 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2017-01-12 16:59:09 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2017-01-12 16:59:09 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL94Dialect
+2017-01-12 16:59:10 [main] INFO  o.h.e.j.e.i.LobCreatorBuilderImpl - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2017-01-12 16:59:10 [main] INFO  org.hibernate.type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@710d9e57
+2017-01-12 16:59:10 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2017-01-12 16:59:11 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/css/**'], Ant [pattern='/js/**'], Ant [pattern='/images/**'], Ant [pattern='/webjars/**'], Ant [pattern='/**/favicon.ico'], Ant [pattern='/error']]], []
+2017-01-12 16:59:11 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@790bf6ec, org.springframework.security.web.context.SecurityContextPersistenceFilter@165dc954, org.springframework.security.web.header.HeaderWriterFilter@59af8142, org.springframework.security.web.authentication.logout.LogoutFilter@7c0c4f19, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@13291632, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@35fb9daa, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@23fbfbf5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@19ef6143, org.springframework.security.web.session.SessionManagementFilter@34eae7a8, org.springframework.security.web.access.ExceptionTranslationFilter@3c47cab9, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@25e54feb]
+2017-01-12 16:59:11 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.boot.actuate.autoconfigure.ManagementWebSecurityAutoConfiguration$LazyEndpointPathRequestMatcher@205c4a3d, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1cfad7df, org.springframework.security.web.context.SecurityContextPersistenceFilter@3066104a, org.springframework.security.web.header.HeaderWriterFilter@3c963d9, org.springframework.security.web.authentication.logout.LogoutFilter@30a506bb, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@4d091d54, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@27187b9e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6f87130f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1ab769f1, org.springframework.security.web.session.SessionManagementFilter@5c107db1, org.springframework.security.web.access.ExceptionTranslationFilter@4ccb645c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4cb95e57]
+2017-01-12 16:59:11 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@508bfcc6: startup date [Thu Jan 12 16:59:05 MSK 2017]; root of context hierarchy
+2017-01-12 16:59:11 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/token],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.lang.Object> by.silverscreen.controllers.PhoneRegistrator.getToken(by.silverscreen.Entities.TokenEntity) throws by.silverscreen.Utils.RestException
+2017-01-12 16:59:11 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/tokens],methods=[GET],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.lang.Object> by.silverscreen.controllers.PhoneRegistrator.getAllToken() throws by.silverscreen.Utils.RestException
+2017-01-12 16:59:11 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/api/send],methods=[POST],produces=[application/json]}" onto public java.util.Map<java.lang.String, java.lang.Object> by.silverscreen.controllers.PhoneRegistrator.sendPush(by.silverscreen.Entities.PushEntity) throws by.silverscreen.Utils.RestException
+2017-01-12 16:59:11 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-01-12 16:59:11 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-01-12 16:59:11 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-12 16:59:11 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-12 16:59:12 [main] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-01-12 16:59:12 [main] INFO  o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2017-01-12 16:59:12 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/mappings || /mappings.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-01-12 16:59:12 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/trace || /trace.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-01-12 16:59:12 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/beans || /beans.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-01-12 16:59:12 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/info || /info.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-01-12 16:59:12 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/heapdump || /heapdump.json],methods=[GET],produces=[application/octet-stream]}" onto public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException
+2017-01-12 16:59:12 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/env/{name:.*}],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
+2017-01-12 16:59:12 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/env || /env.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-01-12 16:59:12 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/logfile || /logfile.json],methods=[GET || HEAD]}" onto public void org.springframework.boot.actuate.endpoint.mvc.LogFileMvcEndpoint.invoke(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws javax.servlet.ServletException,java.io.IOException
+2017-01-12 16:59:12 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/dump || /dump.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-01-12 16:59:12 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/configprops || /configprops.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-01-12 16:59:12 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/shutdown || /shutdown.json],methods=[POST]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.ShutdownMvcEndpoint.invoke()
+2017-01-12 16:59:12 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/autoconfig || /autoconfig.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-01-12 16:59:12 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/health || /health.json],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(java.security.Principal)
+2017-01-12 16:59:12 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/metrics/{name:.*}],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)
+2017-01-12 16:59:12 [main] INFO  o.s.b.a.e.mvc.EndpointHandlerMapping - Mapped "{[/metrics || /metrics.json],methods=[GET],produces=[application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2017-01-12 16:59:13 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2017-01-12 16:59:13 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'jpaConfig' has been autodetected for JMX exposure
+2017-01-12 16:59:13 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2017-01-12 16:59:13 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'jpaConfig': registering with JMX server as MBean [by.silverscreen.config:name=jpaConfig,type=JpaConfig]
+2017-01-12 16:59:13 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2017-01-12 16:59:13 [main] INFO  o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 0
+2017-01-12 16:59:13 [main] INFO  o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2017-01-12 16:59:13 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+2017-01-12 17:00:04 [pool-1-thread-1] INFO  org.jooq.Constants - 
+                                      
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@  @@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@        @@  @  @  @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Thank you for using jOOQ 3.9.0
+                                      

@@ -10,7 +10,7 @@ app.controller('usersController', function($scope, ngTableParams, $http,$filter)
             function(response){
                 var users = response.data.data;
                 angular.forEach(users, function(user) {
-                    if (user.login == "" || user.isman == 0) {
+                    if (user.login == "") {
                         user.isman = 'скрыт'
                     } else if (user.isman == 1) {
                         user.isman = 'мужской'
