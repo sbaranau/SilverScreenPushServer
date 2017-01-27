@@ -22,4 +22,14 @@ public class Tables {
 	 * The table public.phone
 	 */
 	public static final by.silverscreen.jooq.tables.Phone PHONE = by.silverscreen.jooq.tables.Phone.PHONE;
+
+	/**
+	 * The table public.user_roles
+	 */
+	public static final by.silverscreen.jooq.tables.UserRoles USER_ROLES = by.silverscreen.jooq.tables.UserRoles.USER_ROLES;
+
+	/**
+	 * The table public.users
+	 */
+	public static final by.silverscreen.jooq.tables.Users USERS = by.silverscreen.jooq.tables.Users.USERS;
 }

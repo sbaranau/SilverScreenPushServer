@@ -15,23 +15,15 @@
 </head>
 <body>
 <h3>Administrator Panel</h3>
-<div th:fragment="logout" class="logout" sec:authorize="isAuthenticated()">
-    <div>
-        <button onclick="logoutFunc()">Logout</button>
+    <div ng-app="app" ng-controller="mainController">
+        {{userName}}
     </div>
-</div>
-    <div>
+<div>
         <div class="row">
-            <div class="col-md-1">
-                <div class="home-section">
-                    <ul class="menu-list">
-                        <li><a href="#/users">Пользователи</a></li>
-                        <li><a href="#/roles">Билеты</a></li>
-                        <button ng-click="logout()" class="btn btn-default">Выйти</button>
-                    </ul>
-                </div>
-            </div>
             <div class="col-md-11">
+                <li><a href="#/users">Пользователи</a></li>
+                <li><a href="#/roles">Билеты на Сегодня</a></li>
+                <button onclick="logoutFunc()">LogOut</button>
                 <div ng-view></div>
             </div>
         </div>
@@ -49,6 +41,7 @@
 <script src="config.js"></script>
 <script src="js/controller.js"></script>
 <script src="js/notificationController.js"></script>
+<script src="js/mainController.js"></script>
 <link rel="stylesheet" href="webjars/bootstrap/3.3.7-1/css/bootstrap.css">
 <script type="text/ng-template" id="ng-table/headers/checkbox.html">
     <input type="checkbox" ng-click="checkAll()"/>

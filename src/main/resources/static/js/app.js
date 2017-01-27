@@ -9,6 +9,13 @@ app.config(function($routeProvider){
             templateUrl: 'views/notifications.html',
             controller: 'notificationsController'
         })
+        /*.when('/login',{
+            templateUrl: 'views/_login.html',
+            controller: 'loginController'
+        })
+        .when('/loginerror',{
+            templateUrl: 'views/notifications.html'
+        })*/
         .otherwise(
             { redirectTo: '/'}
         );

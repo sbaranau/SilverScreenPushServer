@@ -11,7 +11,7 @@ package by.silverscreen.jooq;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Public extends org.jooq.impl.SchemaImpl {
 
-	private static final long serialVersionUID = -2124778366;
+	private static final long serialVersionUID = 1895455773;
 
 	/**
 	 * The singleton instance of <code>public</code>
@@ -26,6 +26,18 @@ public class Public extends org.jooq.impl.SchemaImpl {
 	}
 
 	@Override
+	public final java.util.List<org.jooq.Sequence<?>> getSequences() {
+		java.util.List result = new java.util.ArrayList();
+		result.addAll(getSequences0());
+		return result;
+	}
+
+	private final java.util.List<org.jooq.Sequence<?>> getSequences0() {
+		return java.util.Arrays.<org.jooq.Sequence<?>>asList(
+			by.silverscreen.jooq.Sequences.USER_ID_SEQ);
+	}
+
+	@Override
 	public final java.util.List<org.jooq.Table<?>> getTables() {
 		java.util.List result = new java.util.ArrayList();
 		result.addAll(getTables0());
@@ -35,6 +47,8 @@ public class Public extends org.jooq.impl.SchemaImpl {
 	private final java.util.List<org.jooq.Table<?>> getTables0() {
 		return java.util.Arrays.<org.jooq.Table<?>>asList(
 			by.silverscreen.jooq.tables.Notifications.NOTIFICATIONS,
-			by.silverscreen.jooq.tables.Phone.PHONE);
+			by.silverscreen.jooq.tables.Phone.PHONE,
+			by.silverscreen.jooq.tables.UserRoles.USER_ROLES,
+			by.silverscreen.jooq.tables.Users.USERS);
 	}
 }

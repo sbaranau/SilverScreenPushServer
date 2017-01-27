@@ -1,7 +1,7 @@
 /**
  * Created by sbaranau on 11/28/2016.
  */
-app.controller('usersController', function($scope, ngTableParams, $http,$filter) {
+app.controller('usersController', function($scope, ngTableParams, $http,$filter,$location, $mainController) {
     $scope.headingTitle = "Пользователи";
     $scope.systems = [{id: "", title: ""}, {id: 'ios', title: 'ios'}, {id: 'Android', title: 'Android'}];
     $scope.gender = [{id: "", title: ""}, {id: 'мужской', title: 'мужской'}, {id: 'женский', title: 'женский'}, {id: 'скрыт', title: 'скрыт'}];
@@ -9,6 +9,8 @@ app.controller('usersController', function($scope, ngTableParams, $http,$filter)
         .then(
             function(response){
                 var users = response.data.data;
+              //  $scope.user = response.data.user;
+                $mainController.updateUser(response.data.user);
                 angular.forEach(users, function(user) {
                     if (user.login == "") {
                         user.isman = 'скрыт'
@@ -33,9 +35,19 @@ app.controller('usersController', function($scope, ngTableParams, $http,$filter)
                 });
             },
             function(response){
-                // failure callback
+                alert(response.data);
             }
         );
+   /* $http.get(serverUrl + 'username')
+        .then(
+            function(response){
+                var users = response.data;
+            },
+            function(response){
+                alert(response.data);
+            }
+        );
+*/
     $scope.selectAll = false;
     $scope.checkAll = function() {
         $scope.selectAll = !$scope.selectAll;

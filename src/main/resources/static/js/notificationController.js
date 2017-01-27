@@ -1,12 +1,14 @@
 /**
  * Created by sbaranau on 11/28/2016.
  */
-app.controller('notificationsController', function($scope, ngTableParams, $http,$filter) {
+app.controller('notificationsController', function($scope, ngTableParams, $http,$filter, $mainController) {
     $scope.headingTitle = "Пользователи с билетами на сегодня";
-    $scope.booleanSend = [{id: "", title: ""}, {id: true, title: 'отправлено'}, {id: false, title: 'не отправлено'}];    $http.get(serverUrl + 'notifications')
+    $scope.booleanSend = [{id: "", title: ""}, {id: true, title: 'отправлено'}, {id: false, title: 'не отправлено'}];
+    $http.get(serverUrl + 'notifications')
         .then(
             function(response){
                 $scope.users = response.data.data;
+                $mainController.updateUser(response.data.user);
                 /*angular.forEach($scope.users, function(user) {
                     if (user.login == "" || user.isman == 0) {
                         user.isman = 'скрыт'
@@ -31,9 +33,19 @@ app.controller('notificationsController', function($scope, ngTableParams, $http,
                 });
             },
             function(response){
-                // failure callback
+                alert(response.data.message);
             }
         );
+
+   /* $http.get(serverUrl + 'username')
+        .then(
+            function(response){
+                var users = response.data;
+            },
+            function(response){
+                alert(response.data);
+            }
+        );*/
     $scope.selectAll = false;
     $scope.checkAll = function() {
         $scope.selectAll = !$scope.selectAll;
@@ -87,8 +99,4 @@ app.controller('notificationsController', function($scope, ngTableParams, $http,
         }
     };
 
-});
-
-app.controller('rolesController', function($scope) {
-    $scope.headingTitle = "Список ролей";
 });

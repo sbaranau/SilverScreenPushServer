@@ -40,10 +40,12 @@ public class JooqRepository {
     public void deleteByLogin(String name) {
         dsl.deleteFrom(PHONE).where(PHONE.LOGIN.like(name)).execute();
     }
+
     @Transactional
     public void deleteByToken(String token) {
         dsl.deleteFrom(PHONE).where(PHONE.TOKEN.like(token)).execute();
     }
+
     @Transactional
     public void persist(PhoneDAO object) {
         dsl.insertInto(PHONE)
