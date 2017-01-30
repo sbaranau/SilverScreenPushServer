@@ -1,23 +1,13 @@
 /**
  * Created by sbaranau on 11/28/2016.
  */
-app.controller('notificationsController', function($scope, ngTableParams, $http,$filter, $mainController) {
+app.controller('notificationsController', function($scope, ngTableParams, $http,$filter) {
     $scope.headingTitle = "Пользователи с билетами на сегодня";
     $scope.booleanSend = [{id: "", title: ""}, {id: true, title: 'отправлено'}, {id: false, title: 'не отправлено'}];
     $http.get(serverUrl + 'notifications')
         .then(
             function(response){
-                $scope.users = response.data.data;
-                $mainController.updateUser(response.data.user);
-                /*angular.forEach($scope.users, function(user) {
-                    if (user.login == "" || user.isman == 0) {
-                        user.isman = 'скрыт'
-                    } else if (user.isman == 1) {
-                        user.isman = 'мужской'
-                    } else {
-                        user.isman = 'женский'
-                    }
-                });*/
+                $scope.users = response.data;
                 $scope.tableParams = new ngTableParams({
                     page: 1,
                     count: 10
@@ -37,15 +27,16 @@ app.controller('notificationsController', function($scope, ngTableParams, $http,
             }
         );
 
-   /* $http.get(serverUrl + 'username')
+    $http.get(serverUrl + 'username')
         .then(
             function(response){
-                var users = response.data;
+                $scope.user = response.data;
+                alert($scope.user.username)
             },
             function(response){
-                alert(response.data);
+                alert(response.data.message);
             }
-        );*/
+        );
     $scope.selectAll = false;
     $scope.checkAll = function() {
         $scope.selectAll = !$scope.selectAll;

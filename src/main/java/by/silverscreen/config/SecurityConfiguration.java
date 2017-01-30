@@ -22,7 +22,7 @@ import javax.sql.DataSource;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
+//@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
    /* @Autowired
@@ -55,14 +55,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .formLogin().permitAll()
                 .and()
+                .anonymous()
+                .and()
                 .authorizeRequests()
-                .anyRequest().authenticated()
                 .antMatchers(HttpMethod.POST, "/api/token").permitAll()
-                //.antMatchers(HttpMethod.GET, "/api/username").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/username").permitAll()
+                .anyRequest().authenticated()
                /* .antMatchers(HttpMethod.POST, "/api/send").access("hasRole('ROLE_ADMIN')")
-                .antMatchers(HttpMethod.GET, "/api/tokens").hasAuthority("ADMIN")
-                .antMatchers(HttpMethod.GET, "/api/notifications").access("hasRole('ROLE_USER')")*/
-               // .anyRequest().fullyAuthenticated()
+                .antMatchers(HttpMethod.GET, "/api/tokens").access("hasRole('ROLE_ADMIN')")
+                .antMatchers(HttpMethod.GET, "/api/notifications").access("hasRole('ROLE_ADMIN')")*/
               /*  .and()
                 .exceptionHandling().accessDeniedPage("/403")*/
                 .and()

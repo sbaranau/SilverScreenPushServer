@@ -1,16 +1,15 @@
 /**
  * Created by sbaranau on 11/28/2016.
  */
-app.controller('usersController', function($scope, ngTableParams, $http,$filter,$location, $mainController) {
+app.controller('usersController', function($scope, ngTableParams, $http,$filter,$location) {
     $scope.headingTitle = "Пользователи";
     $scope.systems = [{id: "", title: ""}, {id: 'ios', title: 'ios'}, {id: 'Android', title: 'Android'}];
     $scope.gender = [{id: "", title: ""}, {id: 'мужской', title: 'мужской'}, {id: 'женский', title: 'женский'}, {id: 'скрыт', title: 'скрыт'}];
     $http.get(serverUrl + 'tokens')
         .then(
             function(response){
-                var users = response.data.data;
+                var users = response.data;
               //  $scope.user = response.data.user;
-                $mainController.updateUser(response.data.user);
                 angular.forEach(users, function(user) {
                     if (user.login == "") {
                         user.isman = 'скрыт'
@@ -35,19 +34,20 @@ app.controller('usersController', function($scope, ngTableParams, $http,$filter,
                 });
             },
             function(response){
-                alert(response.data);
+                alert(response.data.message);
             }
         );
-   /* $http.get(serverUrl + 'username')
+    $http.get(serverUrl + 'username')
         .then(
             function(response){
-                var users = response.data;
+                $scope.user = response.data;
+                alert($scope.user.username)
             },
             function(response){
-                alert(response.data);
+                alert(response.data.message);
             }
         );
-*/
+
     $scope.selectAll = false;
     $scope.checkAll = function() {
         $scope.selectAll = !$scope.selectAll;
