@@ -1,7 +1,7 @@
 /**
  * Created by sbaranau on 11/28/2016.
  */
-app.controller('notificationsController', function($scope, ngTableParams, $http,$filter) {
+app.controller('notificationsController', function($rootScope, $scope, ngTableParams, $http,$filter) {
     $scope.headingTitle = "Пользователи с билетами на сегодня";
     $scope.booleanSend = [{id: "", title: ""}, {id: true, title: 'отправлено'}, {id: false, title: 'не отправлено'}];
     $http.get(serverUrl + 'notifications')
@@ -31,7 +31,6 @@ app.controller('notificationsController', function($scope, ngTableParams, $http,
         .then(
             function(response){
                 $scope.user = response.data;
-                alert($scope.user.username)
             },
             function(response){
                 alert(response.data.message);

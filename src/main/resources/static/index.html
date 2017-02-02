@@ -14,21 +14,21 @@
     <link rel="icon" href="favicon.png">
 </head>
 <body>
-<h3>Administrator Panel</h3>
+<h3 >Administrator Panel</h3>
     <div ng-app="app" ng-controller="mainController">
         {{userName}}
     </div>
 <div>
         <div class="row">
-            <div class="col-md-11">
+            <div class="col-md-10 col-md-offset-1">
                 <li><a href="#/users">Пользователи</a></li>
                 <li><a href="#/roles">Билеты на Сегодня</a></li>
-                <button onclick="logoutFunc()">LogOut</button>
-                <div ng-view></div>
+                <button onclick="logout()">Logout</button>
+
             </div>
         </div>
     </div>
-
+<div ng-view></div>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="webjars/angularjs/1.5.8/angular.js"></script>
 <script src="webjars/angularjs/1.5.8/angular-resource.js"></script>
@@ -45,15 +45,6 @@
 <link rel="stylesheet" href="webjars/bootstrap/3.3.7-1/css/bootstrap.css">
 <script type="text/ng-template" id="ng-table/headers/checkbox.html">
     <input type="checkbox" ng-click="checkAll()"/>
-</script>
-<script>
-    logoutFunc = function() {
-        $.ajax({
-            url: serverUrl + 'logout'
-        }).done(function() {
-            $( this ).addClass( "done" );
-        });
-    }
 </script>
 </body>
 </html>

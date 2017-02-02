@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.security.Principal;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -96,7 +97,7 @@ public class PhoneRegistrator {
         }
     }
 
-    @PreAuthorize("hasAuthority('ROLE_USER')")
+    @PreAuthorize("hasAuthority('ROLE_USER') or hasAuthority('ROLE_USER')")
     @CrossOrigin
     @RequestMapping(value = "/notifications", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     public @ResponseBody
@@ -123,6 +124,16 @@ public class PhoneRegistrator {
 
     @CrossOrigin
     @RequestMapping(value="/username", method = RequestMethod.GET)
+    public ResponseEntity getUserName (Authentication authentication) throws RestException {
+        if (authentication == null){
+            return ResponseEntity.ok("anonymous");
+        } else {
+            return ResponseEntity.ok((UserDetails) authentication.getPrincipal());
+        }
+    }
+
+    @CrossOrigin
+    @RequestMapping(value="/user", method = RequestMethod.GET)
     public ResponseEntity getUser (Authentication authentication) throws RestException {
         if (authentication == null){
             return ResponseEntity.ok("anonymous");

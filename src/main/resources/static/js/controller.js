@@ -1,7 +1,7 @@
 /**
  * Created by sbaranau on 11/28/2016.
  */
-app.controller('usersController', function($scope, ngTableParams, $http,$filter,$location) {
+app.controller('usersController', function($rootScope, $scope, ngTableParams, $http,$filter,$location) {
     $scope.headingTitle = "Пользователи";
     $scope.systems = [{id: "", title: ""}, {id: 'ios', title: 'ios'}, {id: 'Android', title: 'Android'}];
     $scope.gender = [{id: "", title: ""}, {id: 'мужской', title: 'мужской'}, {id: 'женский', title: 'женский'}, {id: 'скрыт', title: 'скрыт'}];
@@ -41,7 +41,6 @@ app.controller('usersController', function($scope, ngTableParams, $http,$filter,
         .then(
             function(response){
                 $scope.user = response.data;
-                alert($scope.user.username)
             },
             function(response){
                 alert(response.data.message);

@@ -1,7 +1,7 @@
 /**
  * Created by sbaranau on 1/26/2017.
  */
-app.controller('loginController', function($scope, ngTableParams, $http,$filter,$location) {
+app.controller('loginController', function($rootScope, $scope, ngTableParams, $http,$filter,$location) {
 
     $scope.loginAction = function() {
         $http({
