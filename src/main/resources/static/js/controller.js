@@ -1,51 +1,36 @@
 /**
  * Created by sbaranau on 11/28/2016.
  */
-app.controller('usersController', function($rootScope, $scope, ngTableParams, $http,$filter,$location) {
+app.controller('usersController', function($rootScope, $scope, ngTableParams, $http,$filter,$location, serverSettings, tokens) {
     $scope.headingTitle = "Пользователи";
     $scope.systems = [{id: "", title: ""}, {id: 'ios', title: 'ios'}, {id: 'Android', title: 'Android'}];
     $scope.gender = [{id: "", title: ""}, {id: 'мужской', title: 'мужской'}, {id: 'женский', title: 'женский'}, {id: 'скрыт', title: 'скрыт'}];
-    $http.get(serverUrl + 'tokens')
-        .then(
-            function(response){
-                var users = response.data;
-              //  $scope.user = response.data.user;
-                angular.forEach(users, function(user) {
-                    if (user.login == "") {
-                        user.isman = 'скрыт'
-                    } else if (user.isman == 1) {
-                        user.isman = 'мужской'
-                    } else {
-                        user.isman = 'женский'
-                    }
-                });
-                $scope.tableParams = new ngTableParams({
-                    page: 1,
-                    count: 10
-                }, {
-                    total: users.length, // length of data
-                    getData: function($defer, params) {
-                        $scope.data = params.sorting() ? $filter('orderBy')(users, params.orderBy()) : users;
-                        $scope.data = params.filter() ? $filter('filter')($scope.data, params.filter()) : $scope.data;
-                        params.total($scope.data.length);
-                        $scope.data = $scope.data.slice((params.page() - 1) * params.count(), params.page() * params.count());
-                        $defer.resolve($scope.data);
-                    }
-                });
-            },
-            function(response){
-                alert(response.data.message);
+    tokens.getTokens(function(tokens) {
+        if (tokens.message.length > 0) {
+            alert(tokens.message)
+        }
+        var users = tokens.data;
+        $scope.tableParams = new ngTableParams({
+            page: 1,
+            count: 10
+        }, {
+            total: users.length, // length of data
+            getData: function($defer, params) {
+                $scope.data = params.sorting() ? $filter('orderBy')(users, params.orderBy()) : users;
+                $scope.data = params.filter() ? $filter('filter')($scope.data, params.filter()) : $scope.data;
+                params.total($scope.data.length);
+                $scope.data = $scope.data.slice((params.page() - 1) * params.count(), params.page() * params.count());
+                $defer.resolve($scope.data);
             }
-        );
-    $http.get(serverUrl + 'username')
-        .then(
-            function(response){
-                $scope.user = response.data;
-            },
-            function(response){
-                alert(response.data.message);
-            }
-        );
+        });
+    });
+
+    tokens.getUser().then(function(user) {
+        if (user.message.length > 0) {
+            alert(user.message);
+        }
+        $scope.user = user.user;
+    });
 
     $scope.selectAll = false;
     $scope.checkAll = function() {
@@ -82,7 +67,7 @@ app.controller('usersController', function($rootScope, $scope, ngTableParams, $h
 
             };
             var parameter = JSON.stringify(postData);
-            $http.post(serverUrl + 'send', parameter).
+            $http.post(serverSettings.serverUrl + 'send', parameter).
             success(function(data, status, headers, config) {
                 // this callback will be called asynchronously
                 // when the response is available
@@ -102,6 +87,3 @@ app.controller('usersController', function($rootScope, $scope, ngTableParams, $h
 
 });
 
-app.controller('rolesController', function($scope) {
-    $scope.headingTitle = "Список ролей";
-});

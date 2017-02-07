@@ -11,7 +11,7 @@ package by.silverscreen.jooq.tables;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Notifications extends org.jooq.impl.TableImpl<by.silverscreen.jooq.tables.records.NotificationsRecord> {
 
-	private static final long serialVersionUID = -1953517105;
+	private static final long serialVersionUID = -861662833;
 
 	/**
 	 * The singleton instance of <code>public.notifications</code>
@@ -57,9 +57,9 @@ public class Notifications extends org.jooq.impl.TableImpl<by.silverscreen.jooq.
 	public final org.jooq.TableField<by.silverscreen.jooq.tables.records.NotificationsRecord, java.lang.Boolean> WANTRECIEVE = createField("wantrecieve", org.jooq.impl.SQLDataType.BOOLEAN, this, "");
 
 	/**
-	 * The column <code>public.notifications.morningSend</code>.
+	 * The column <code>public.notifications.morningsend</code>.
 	 */
-	public final org.jooq.TableField<by.silverscreen.jooq.tables.records.NotificationsRecord, java.lang.Boolean> MORNINGSEND = createField("morningSend", org.jooq.impl.SQLDataType.BOOLEAN, this, "");
+	public final org.jooq.TableField<by.silverscreen.jooq.tables.records.NotificationsRecord, java.lang.Boolean> MORNINGSEND = createField("morningsend", org.jooq.impl.SQLDataType.BOOLEAN, this, "");
 
 	/**
 	 * The column <code>public.notifications.filmreminder</code>.

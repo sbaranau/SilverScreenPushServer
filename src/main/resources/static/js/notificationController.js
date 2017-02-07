@@ -1,10 +1,30 @@
 /**
  * Created by sbaranau on 11/28/2016.
  */
-app.controller('notificationsController', function($rootScope, $scope, ngTableParams, $http,$filter) {
+app.controller('notificationsController', function($rootScope, $scope, ngTableParams, $http,$filter, serverSettings, tokens) {
     $scope.headingTitle = "Пользователи с билетами на сегодня";
     $scope.booleanSend = [{id: "", title: ""}, {id: true, title: 'отправлено'}, {id: false, title: 'не отправлено'}];
-    $http.get(serverUrl + 'notifications')
+    tokens.getNotifications().then(function(notifications) {
+        if (notifications.message.length > 0) {
+            alert(notifications.message);
+        }
+        $scope.users = notifications.data;
+        $scope.tableParams = new ngTableParams({
+            page: 1,
+            count: 10
+        }, {
+            total: $scope.users.length, // length of data
+            getData: function($defer, params) {
+                $scope.data = params.sorting() ? $filter('orderBy')($scope.users, params.orderBy()) : $scope.users;
+                $scope.data = params.filter() ? $filter('filter')($scope.data, params.filter()) : $scope.data;
+                params.total($scope.data.length);
+                $scope.data = $scope.data.slice((params.page() - 1) * params.count(), params.page() * params.count());
+                $defer.resolve($scope.data);
+            }
+        });
+    });
+
+    $http.get(serverSettings.serverUrl + 'notifications')
         .then(
             function(response){
                 $scope.users = response.data;
@@ -27,15 +47,12 @@ app.controller('notificationsController', function($rootScope, $scope, ngTablePa
             }
         );
 
-    $http.get(serverUrl + 'username')
-        .then(
-            function(response){
-                $scope.user = response.data;
-            },
-            function(response){
-                alert(response.data.message);
-            }
-        );
+    tokens.getUser().then(function(user) {
+        if (user.message.length > 0) {
+            alert(user.message);
+        }
+        $scope.user = user.user;
+    });
     $scope.selectAll = false;
     $scope.checkAll = function() {
         $scope.selectAll = !$scope.selectAll;

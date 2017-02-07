@@ -13,9 +13,23 @@
 
 	<profiles>
 		<profile>
-			<id>10.0.1.2_postgre</id>
+			<id>local_postgre</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<jdbc.password>root</jdbc.password>
+				<jdbc.url>jdbc:postgresql://localhost:5432/silverscreen</jdbc.url>
+				<jdbc.database.name>public.silverscreen</jdbc.database.name>
+				<jdbc.driver>org.postgresql.Driver</jdbc.driver>
+				<jdbc.user>postgres</jdbc.user>
+				<logger.level>ERROR</logger.level>
+			</properties>
+		</profile>
+		<profile>
+			<id>10.0.1.2_postgre</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
 			</activation>
 			<properties>
 				<jdbc.password>root</jdbc.password>
@@ -50,6 +64,7 @@
 		<jooq.version>3.9.0</jooq.version>
 		<spring.security.version>4.2.1.RELEASE</spring.security.version>
 		<spring.boot.version>1.4.3.RELEASE</spring.boot.version>
+		<spring.data.version>1.4.3.RELEASE</spring.data.version>
 	</properties>
 
 	<parent>
@@ -140,8 +155,15 @@
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>9.4-1202-jdbc42</version>
-			<!--<scope>runtime</scope>-->
 		</dependency>
+		<!-- JPA -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>${spring.data.version}</version>
+		</dependency>
+
+
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>angularjs</artifactId>

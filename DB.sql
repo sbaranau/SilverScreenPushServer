@@ -1,4 +1,4 @@
-password SU root
+-- password SU root
 -- Table: public.notifications
 
 -- DROP TABLE public.notifications;

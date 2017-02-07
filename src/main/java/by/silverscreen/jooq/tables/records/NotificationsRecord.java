@@ -11,7 +11,7 @@ package by.silverscreen.jooq.tables.records;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class NotificationsRecord extends org.jooq.impl.UpdatableRecordImpl<by.silverscreen.jooq.tables.records.NotificationsRecord> implements org.jooq.Record10<java.lang.String, java.lang.String, java.lang.String, java.lang.Long, java.lang.Long, java.lang.Boolean, java.lang.Boolean, java.lang.Boolean, java.lang.Long, java.lang.String> {
 
-	private static final long serialVersionUID = -2103140734;
+	private static final long serialVersionUID = 606911106;
 
 	/**
 	 * Setter for <code>public.notifications.id</code>.
@@ -98,14 +98,14 @@ public class NotificationsRecord extends org.jooq.impl.UpdatableRecordImpl<by.si
 	}
 
 	/**
-	 * Setter for <code>public.notifications.morningSend</code>.
+	 * Setter for <code>public.notifications.morningsend</code>.
 	 */
 	public void setMorningsend(java.lang.Boolean value) {
 		setValue(6, value);
 	}
 
 	/**
-	 * Getter for <code>public.notifications.morningSend</code>.
+	 * Getter for <code>public.notifications.morningsend</code>.
 	 */
 	public java.lang.Boolean getMorningsend() {
 		return (java.lang.Boolean) getValue(6);

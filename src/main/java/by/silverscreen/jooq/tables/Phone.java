@@ -11,7 +11,7 @@ package by.silverscreen.jooq.tables;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Phone extends org.jooq.impl.TableImpl<by.silverscreen.jooq.tables.records.PhoneRecord> {
 
-	private static final long serialVersionUID = 2013005181;
+	private static final long serialVersionUID = 644270597;
 
 	/**
 	 * The singleton instance of <code>public.phone</code>
@@ -47,16 +47,6 @@ public class Phone extends org.jooq.impl.TableImpl<by.silverscreen.jooq.tables.r
 	public final org.jooq.TableField<by.silverscreen.jooq.tables.records.PhoneRecord, java.lang.String> PASSWORD = createField("password", org.jooq.impl.SQLDataType.VARCHAR.length(50), this, "");
 
 	/**
-	 * The column <code>public.phone.system</code>.
-	 */
-	public final org.jooq.TableField<by.silverscreen.jooq.tables.records.PhoneRecord, java.lang.String> SYSTEM = createField("system", org.jooq.impl.SQLDataType.VARCHAR.length(30), this, "");
-
-	/**
-	 * The column <code>public.phone.version</code>.
-	 */
-	public final org.jooq.TableField<by.silverscreen.jooq.tables.records.PhoneRecord, java.lang.String> VERSION = createField("version", org.jooq.impl.SQLDataType.VARCHAR.length(5), this, "");
-
-	/**
 	 * The column <code>public.phone.date</code>.
 	 */
 	public final org.jooq.TableField<by.silverscreen.jooq.tables.records.PhoneRecord, java.lang.Long> DATE = createField("date", org.jooq.impl.SQLDataType.BIGINT, this, "");
@@ -75,6 +65,11 @@ public class Phone extends org.jooq.impl.TableImpl<by.silverscreen.jooq.tables.r
 	 * The column <code>public.phone.name</code>.
 	 */
 	public final org.jooq.TableField<by.silverscreen.jooq.tables.records.PhoneRecord, java.lang.String> NAME = createField("name", org.jooq.impl.SQLDataType.VARCHAR, this, "");
+
+	/**
+	 * The column <code>public.phone.system</code>.
+	 */
+	public final org.jooq.TableField<by.silverscreen.jooq.tables.records.PhoneRecord, java.lang.String> SYSTEM = createField("system", org.jooq.impl.SQLDataType.VARCHAR, this, "");
 
 	/**
 	 * Create a <code>public.phone</code> table reference

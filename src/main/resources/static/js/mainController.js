@@ -1,7 +1,7 @@
 /**
  * Created by sbaranau on 1/27/2017.
  */
-app.controller('mainController', function($rootScope, $scope, $http) {
+app.controller('mainController', function($rootScope, $scope, $http, serverSettings) {
     if ($scope.user != undefined && $scope.user.username != undefined) {
         $scope.userName = 'Вы вошли как: ' + $scope.user.username
     } else {
@@ -9,7 +9,7 @@ app.controller('mainController', function($rootScope, $scope, $http) {
     }
     updateUser = function(val) {
         $scope.user = val;
-    }
+    };
 
     var authenticate = function(credentials, callback) {
 
@@ -19,7 +19,7 @@ app.controller('mainController', function($rootScope, $scope, $http) {
                 + credentials.password)
         } : {};
 
-        $http.get(serverUrl + 'user', {
+        $http.get(serverSettings.serverUrl + 'user', {
             headers : headers
         }).then(function(response) {
             if (response.data.name) {
@@ -33,7 +33,7 @@ app.controller('mainController', function($rootScope, $scope, $http) {
             callback && callback(false);
         });
 
-    }
+    };
 
     authenticate();
 
@@ -55,7 +55,7 @@ app.controller('mainController', function($rootScope, $scope, $http) {
     };
 
     self.logout = function() {
-        $http.post('logout', {}).finally(function() {
+        $http.post(serverSettings + 'logout', {}).finally(function() {
             $rootScope.authenticated = false;
             $location.path("/");
         });
