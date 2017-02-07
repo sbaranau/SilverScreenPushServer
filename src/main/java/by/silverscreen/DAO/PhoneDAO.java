@@ -2,34 +2,42 @@ package by.silverscreen.DAO;
 
 import by.silverscreen.Entities.TokenEntity;
 
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 import java.util.UUID;
 
 /**
  * Created by sbaranau on 11/25/2016.
  */
+@Entity
+@Table(name = "phone")
 public class PhoneDAO implements Serializable {
 
+    @Id
+    @Column(name = "data_id", nullable = false)
     private UUID id;
+    @Column(name = "token")
     private String token;
+    @Column(name = "login", unique = true)
     private String login;
+    @Column(name = "password")
     private String password;
+    @Column(name = "date")
     private long date;
+    @Column(name = "birth")
     private long dateOfBirth;
+    @Column(name = "isman")
     private int isman;
+    @Column(name = "name")
     private String user;
+    @Column(name = "system")
     private String system;
 
-    PhoneDAO() {
-        date = 0;
-        user = "";
-        isman = 0;
-        dateOfBirth = 0;
-        password = "";
-        login = "";
-        token = "";
-        system = "";
-    }
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "login")
+    Set<NotificationDAO> notificationsDAO;
+
 
     public PhoneDAO(TokenEntity tokenEntity) {
         id=UUID.randomUUID();
@@ -75,6 +83,10 @@ public class PhoneDAO implements Serializable {
         }
         date = 0;
     }
+
+    public PhoneDAO() {
+    }
+
     public UUID getId() {
         return id;
     }
@@ -172,5 +184,13 @@ public class PhoneDAO implements Serializable {
 
     public void setUser(String user) {
         this.user = user;
+    }
+
+    public Set<NotificationDAO> getNotificationsDAO() {
+        return notificationsDAO;
+    }
+
+    public void setNotificationsDAO(Set<NotificationDAO> notificationsDAO) {
+        this.notificationsDAO = notificationsDAO;
     }
 }
